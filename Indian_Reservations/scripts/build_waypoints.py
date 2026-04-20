@@ -1,14 +1,15 @@
-"""Build the ForeFlight waypoint CSV for the five reservations that get
-tribe-specific rich PDFs (Hualapai, Havasupai, Navajo, Taos Pueblo, Red Lake).
+"""Build the ForeFlight waypoint CSV of reservation centroids.
 
-Why only five: the CSV exists solely to anchor the rich-waypoint PDF convention
-`WAYPOINT_NAMEDocumentName.pdf`. Every other reservation is represented by the
-Points KML layer (tappable popup) and the zone KML (polygon) — adding every
-reservation to the CSV creates a duplicate marker at each centroid and produces
-the stacked-label clutter the user saw on-device.
+Uses the Census-supplied internal point (INTPTLAT/INTPTLON) which is guaranteed
+to fall inside the polygon, falling back to a computed centroid if missing.
 
 Output format per ForeFlight content-pack spec:
     WAYPOINT_NAME,Description,Lat,Lon
+
+Waypoint names are sanitized to uppercase alphanumeric, <= 10 chars, and made
+unique across the file. The 5 rich waypoints (HUALAPAI, HAVASUPAI, NAVAJO,
+TAOSPUEB, REDLAKE) are forced to fixed codes so their per-tribe PDFs line up
+with the ForeFlight `<WAYPOINT_NAME><DocumentName>.pdf` convention.
 """
 from __future__ import annotations
 
@@ -92,19 +93,18 @@ def main() -> int:
         name = props.get("NAME") or props.get("BASENAME") or ""
         if not name:
             continue
-        # Only emit CSV rows for the 5 reservations that have rich PDFs.
-        forced = override_for(name)
-        if not forced:
-            continue
         pt = centroid_latlon(props, feat.get("geometry"))
         if pt is None:
             continue
         lat, lon = pt
 
-        if forced in taken:
-            continue
-        code = forced
-        taken.add(code)
+        forced = override_for(name)
+        if forced and forced not in taken:
+            code = forced
+            taken.add(code)
+        else:
+            code = unique(sanitize(name), taken)
+
         description = name.replace(",", " ").strip()
         rows.append((code, description, lat, lon))
 
