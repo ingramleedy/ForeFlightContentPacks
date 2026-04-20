@@ -23,7 +23,10 @@ from shapely.geometry import shape
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "raw_reservations.geojson"
 ENRICHMENT = ROOT / "data" / "enrichment.json"
-OUT = ROOT / "pack" / "layers" / "Indian_Reservations_Points.kml"
+# Points KML lives in navdata/ (matching the SFRA pack pattern) so ForeFlight
+# treats it as a waypoint layer rather than a map layer — known to interact
+# better with z-ordering over polygon zones in layers/.
+OUT = ROOT / "pack" / "navdata" / "Indian_Reservations_Points.kml"
 
 AIANNHCC_LABELS = {
     "D2": "Federal American Indian Reservation",
