@@ -23,15 +23,20 @@ MAX_ZIP_BYTES = 10 * 1024 * 1024
 
 
 def write_manifest() -> None:
+    # Auto-bump version on every build so ForeFlight treats each build as a
+    # new pack and reconciles content cleanly. Format: YYYYMMDD.HHMM as a
+    # float (ForeFlight's manifest spec wants a numeric version).
+    now = datetime.now(timezone.utc)
+    version = float(now.strftime("%Y%m%d.%H%M"))
     manifest = {
         "name": "Indian Reservations",
         "abbreviation": "IR.V1",
-        "version": 1.0,
-        "effectiveDate": datetime.now(timezone.utc).strftime("%Y%m%dT%H:%M:%SZ"),
+        "version": version,
+        "effectiveDate": now.strftime("%Y%m%dT%H:%M:%SZ"),
         "organizationName": "Ingram Leedy",
     }
     MANIFEST.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-    print(f"wrote {MANIFEST}")
+    print(f"wrote {MANIFEST} (version {version})")
 
 
 def zip_pack() -> int:
