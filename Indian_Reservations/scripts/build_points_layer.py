@@ -31,7 +31,9 @@ AIANNHCC_LABELS = {
 }
 
 ICON_HREF = "http://maps.google.com/mapfiles/kml/paddle/orange-circle.png"
+WARN_ICON_HREF = "http://maps.google.com/mapfiles/kml/paddle/red-circle.png"
 ICON_SCALE = 0.9
+WARN_ICON_SCALE = 1.1
 LABEL_SCALE = 0.9
 
 
@@ -154,22 +156,24 @@ def centroid_latlon(props: dict, geom_json: dict) -> tuple[float, float] | None:
         return None
 
 
-def style_xml() -> str:
+def style_xml(warn: bool = False) -> str:
+    href = WARN_ICON_HREF if warn else ICON_HREF
+    scale = WARN_ICON_SCALE if warn else ICON_SCALE
     return (
         "<Style>"
-        f"<IconStyle><scale>{ICON_SCALE}</scale>"
-        f"<Icon><href>{ICON_HREF}</href></Icon></IconStyle>"
+        f"<IconStyle><scale>{scale}</scale>"
+        f"<Icon><href>{href}</href></Icon></IconStyle>"
         f"<LabelStyle><scale>{LABEL_SCALE}</scale></LabelStyle>"
         "</Style>"
     )
 
 
-def placemark_xml(name: str, desc_html: str, lat: float, lon: float) -> str:
+def placemark_xml(name: str, desc_html: str, lat: float, lon: float, warn: bool = False) -> str:
     return (
         "<Placemark>"
         f"<name>{html.escape(name)}</name>"
         f"<description><![CDATA[{desc_html}]]></description>"
-        f"{style_xml()}"
+        f"{style_xml(warn=warn)}"
         f"<Point><coordinates>{lon:.5f},{lat:.5f},0</coordinates></Point>"
         "</Placemark>"
     )
@@ -196,7 +200,8 @@ def main() -> int:
         lat, lon = pt
         geoid = props.get("GEOID") or props.get("AIANNHNS") or name
         enrich = enrichment.get(geoid) or {}
-        blobs.append(placemark_xml(name, describe(props, enrich), lat, lon))
+        warn = bool(enrich.get("tribal_overflight_assertion"))
+        blobs.append(placemark_xml(name, describe(props, enrich), lat, lon, warn=warn))
 
     header = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'

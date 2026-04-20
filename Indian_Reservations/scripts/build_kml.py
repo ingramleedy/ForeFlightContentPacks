@@ -29,11 +29,17 @@ OUT = ROOT / "pack" / "layers" / "Indian_Reservations.kml"
 SIMPLIFY_TOLERANCE = 0.001  # degrees (~110 m at equator)
 COORD_DECIMALS = 5
 
-# KML color is AABBGGRR. For a warm orange fill and a vivid contrasting border.
-FILL_COLOR = "802060c0"      # translucent warm orange (alpha=50%, R=192 G=96 B=32)
-OUTLINE_COLOR = "ff00a0ff"   # opaque bright orange (R=255 G=160 B=0) — stands out from
-                             # magenta/purple/blue/green chart overlays
+# KML color is AABBGGRR. Two styles: default orange for most reservations, and
+# a "warn" red outline for the small number with a documented tribal overflight
+# assertion (pilots should pay attention — see navdata PDF).
+FILL_COLOR = "802060c0"       # translucent warm orange (alpha 50%, RGB 192/96/32)
+OUTLINE_COLOR = "ff00a0ff"    # opaque bright orange (RGB 255/160/0)
 OUTLINE_WIDTH = 2.5
+
+WARN_FILL_COLOR = "802060e0"  # slightly more saturated orange (RGB 224/96/32)
+WARN_OUTLINE_COLOR = "ff0020ff"  # opaque red (RGB 255/32/0) — universal "caution"
+WARN_OUTLINE_WIDTH = 3.5
+
 LABEL_SCALE = 1.2
 
 AIANNHCC_LABELS = {
@@ -72,11 +78,14 @@ def polygon_xml(poly: Polygon) -> str:
     )
 
 
-def style_xml() -> str:
+def style_xml(warn: bool = False) -> str:
+    fill = WARN_FILL_COLOR if warn else FILL_COLOR
+    line = WARN_OUTLINE_COLOR if warn else OUTLINE_COLOR
+    width = WARN_OUTLINE_WIDTH if warn else OUTLINE_WIDTH
     return (
         "<Style>"
-        f"<LineStyle><color>{OUTLINE_COLOR}</color><width>{OUTLINE_WIDTH}</width></LineStyle>"
-        f"<PolyStyle><color>{FILL_COLOR}</color><fill>1</fill><outline>1</outline></PolyStyle>"
+        f"<LineStyle><color>{line}</color><width>{width}</width></LineStyle>"
+        f"<PolyStyle><color>{fill}</color><fill>1</fill><outline>1</outline></PolyStyle>"
         "</Style>"
     )
 
@@ -131,7 +140,7 @@ def describe(props: dict, enrich: dict) -> str:
     return "".join(parts)
 
 
-def placemark_xml(name: str, desc_html: str, polys: list[Polygon]) -> str:
+def placemark_xml(name: str, desc_html: str, polys: list[Polygon], warn: bool = False) -> str:
     # Pure polygon placemark, matching the official ForeFlight sample shape.
     # Multi-part reservations get a flat <MultiGeometry> of Polygons — no Point.
     if len(polys) == 1:
@@ -142,7 +151,7 @@ def placemark_xml(name: str, desc_html: str, polys: list[Polygon]) -> str:
         "<Placemark>"
         f"<name>{html.escape(name)}</name>"
         f"<description><![CDATA[{desc_html}]]></description>"
-        f"{style_xml()}"
+        f"{style_xml(warn=warn)}"
         f"{geom}"
         "</Placemark>"
     )
@@ -173,7 +182,8 @@ def feature_to_xml(feat: dict, enrichment: dict) -> str | None:
 
     geoid = props.get("GEOID") or props.get("AIANNHNS") or name
     enrich = enrichment.get(geoid) or {}
-    return placemark_xml(name, describe(props, enrich), polys)
+    warn = bool(enrich.get("tribal_overflight_assertion"))
+    return placemark_xml(name, describe(props, enrich), polys, warn=warn)
 
 
 def main() -> int:
