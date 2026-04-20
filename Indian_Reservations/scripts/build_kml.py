@@ -83,8 +83,12 @@ def style_xml(warn: bool = False) -> str:
     fill = WARN_FILL_COLOR if warn else FILL_COLOR
     line = WARN_OUTLINE_COLOR if warn else OUTLINE_COLOR
     width = WARN_OUTLINE_WIDTH if warn else OUTLINE_WIDTH
+    # LabelStyle scale=0 suppresses the static map label on zone polygons so
+    # they don't compete for screen space with the Points-layer pin labels.
+    # Tapping a polygon still opens its popup (name + description).
     return (
         "<Style>"
+        "<LabelStyle><scale>0</scale></LabelStyle>"
         f"<LineStyle><color>{line}</color><width>{width}</width></LineStyle>"
         f"<PolyStyle><color>{fill}</color><fill>1</fill><outline>1</outline></PolyStyle>"
         "</Style>"
