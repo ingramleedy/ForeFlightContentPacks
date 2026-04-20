@@ -36,6 +36,10 @@ ICON_SCALE = 0.9
 WARN_ICON_SCALE = 1.1
 LABEL_SCALE = 0.9
 
+# Reservations that ship as CSV waypoints (for rich-PDF linking) are excluded
+# from this Points KML layer to avoid stacked map markers at the same centroid.
+CSV_COVERED_SUBSTRINGS = ("hualapai", "havasupai", "navajo nation", "taos pueblo", "red lake")
+
 
 def sq_meters_to_sq_miles(m2) -> float:
     try:
@@ -191,11 +195,17 @@ def main() -> int:
 
     blobs: list[str] = []
     skipped = 0
+    csv_covered = 0
     for feat in features:
         props = feat.get("properties") or {}
         name = props.get("NAME") or props.get("BASENAME")
         if not name:
             skipped += 1
+            continue
+        # Skip reservations that ship as CSV waypoints (rich-PDF-linked).
+        lname = name.lower()
+        if any(s in lname for s in CSV_COVERED_SUBSTRINGS):
+            csv_covered += 1
             continue
         pt = centroid_latlon(props, feat.get("geometry"))
         if pt is None:
@@ -222,7 +232,10 @@ def main() -> int:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(header + body + footer, encoding="utf-8")
     size_kb = OUT.stat().st_size / 1024
-    print(f"wrote {OUT} ({size_kb:.1f} KB); placemarks={len(blobs)}; skipped={skipped}")
+    print(
+        f"wrote {OUT} ({size_kb:.1f} KB); "
+        f"placemarks={len(blobs)}; csv_covered={csv_covered}; skipped={skipped}"
+    )
     return 0
 
 
