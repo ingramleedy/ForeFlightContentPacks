@@ -7,6 +7,7 @@ pulling in a full parser. Anything richer than that isn't needed here.
 """
 from __future__ import annotations
 
+import json
 import re
 import shutil
 import sys
@@ -29,9 +30,20 @@ from reportlab.lib.enums import TA_LEFT
 
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
+TRIBES = CONTENT / "tribes"
 NAVDATA = ROOT / "pack" / "navdata"
+ENRICHMENT = ROOT / "data" / "enrichment.json"
 
 RICH_WAYPOINTS = ["HUALAPAI", "HAVASUPAI", "NAVAJO", "TAOSPUEB", "REDLAKE"]
+
+# Census NAME substrings to match each rich waypoint to an enrichment record.
+WAYPOINT_NAME_MATCH = {
+    "HUALAPAI": "Hualapai Indian Reservation",
+    "HAVASUPAI": "Havasupai Reservation",
+    "NAVAJO": "Navajo Nation Reservation",
+    "TAOSPUEB": "Taos Pueblo",
+    "REDLAKE": "Red Lake Reservation",
+}
 
 
 def make_styles() -> dict[str, ParagraphStyle]:
@@ -164,8 +176,102 @@ def render(md_path: Path, pdf_path: Path, title: str) -> None:
     print(f"  wrote {pdf_path.name} ({pdf_path.stat().st_size / 1024:.1f} KB)")
 
 
+def load_enrichment_by_name() -> dict[str, dict]:
+    if not ENRICHMENT.exists():
+        return {}
+    data = json.loads(ENRICHMENT.read_text(encoding="utf-8"))
+    return {(r.get("name") or ""): r for r in data.values()}
+
+
+def tribe_enrichment_flow(waypoint: str, enrich: dict, styles: dict[str, ParagraphStyle]) -> list:
+    """Render per-tribe facts pulled from enrichment.json into PDF flowables."""
+    flow: list = [Paragraph("Quick facts", styles["h2"])]
+
+    rows: list[str] = []
+    states = enrich.get("states") or []
+    if states:
+        rows.append(f"<b>States:</b> {', '.join(states)}")
+    if enrich.get("population_2020") is not None and enrich["population_2020"] > 0:
+        rows.append(f"<b>Population (2020):</b> {enrich['population_2020']:,}")
+    if enrich.get("housing_units_2020") is not None and enrich["housing_units_2020"] > 0:
+        rows.append(f"<b>Housing units (2020):</b> {enrich['housing_units_2020']:,}")
+    wd = enrich.get("wikidata") or {}
+    if wd.get("label") and wd["label"] != enrich.get("name"):
+        rows.append(f"<b>Tribal government:</b> {wd['label']}")
+    if wd.get("federally_recognized"):
+        rows.append(f"<b>Federally recognized:</b> {wd['federally_recognized'][:10]}")
+    if wd.get("languages"):
+        rows.append(f"<b>Language(s):</b> {', '.join(wd['languages'])}")
+    if wd.get("website"):
+        url = wd['website']
+        rows.append(f'<b>Website:</b> <a href="{url}" color="#2b5080">{url}</a>')
+
+    for r in rows:
+        flow.append(Paragraph(r, styles["body"]))
+
+    ap = enrich.get("nearest_airports") or []
+    if ap:
+        flow.append(Paragraph("Nearest public airports", styles["h3"]))
+        for a in ap:
+            flow.append(Paragraph(
+                f"<b>{a['ident']}</b> &mdash; {a['name']} ({a['nm']:.1f} NM)",
+                styles["body"],
+            ))
+
+    assertion = enrich.get("tribal_overflight_assertion")
+    if assertion:
+        flow.append(Paragraph("Tribal overflight assertion", styles["h3"]))
+        alt = assertion.get("altitude_ft")
+        if alt:
+            flow.append(Paragraph(f"<b>Claimed minimum altitude:</b> {alt:,} ft", styles["body"]))
+        flow.append(Paragraph(assertion.get("summary", ""), styles["body"]))
+        if assertion.get("source"):
+            flow.append(Paragraph(f"<i>Source: {assertion['source']}</i>", styles["em"]))
+
+    return flow
+
+
+def render_tribe_pdf(waypoint: str, enrich_by_name: dict, styles: dict[str, ParagraphStyle], pdf_path: Path) -> None:
+    md_path = TRIBES / f"{waypoint}.md"
+    if not md_path.exists():
+        raise FileNotFoundError(md_path)
+    md = md_path.read_text(encoding="utf-8")
+    flow = parse_markdown(md, styles)
+
+    census_name = WAYPOINT_NAME_MATCH.get(waypoint)
+    enrich = enrich_by_name.get(census_name) if census_name else None
+    if enrich:
+        flow.append(HRFlowable(width="100%", thickness=0.5, color=HexColor("#bbbbbb")))
+        flow.append(Spacer(1, 6))
+        flow.extend(tribe_enrichment_flow(waypoint, enrich, styles))
+
+    flow.append(HRFlowable(width="100%", thickness=0.5, color=HexColor("#bbbbbb")))
+    flow.append(Spacer(1, 6))
+    flow.append(Paragraph(
+        "<i>This PDF ships inside a ForeFlight Content Pack for situational awareness "
+        "only. Not a substitute for current FAA publications, sectional charts, "
+        "Chart Supplement entries, or NOTAMs. See also "
+        "navdata/Overflight_Considerations.pdf.</i>",
+        styles["em"],
+    ))
+
+    doc = SimpleDocTemplate(
+        str(pdf_path),
+        pagesize=LETTER,
+        leftMargin=0.7 * inch,
+        rightMargin=0.7 * inch,
+        topMargin=0.6 * inch,
+        bottomMargin=0.6 * inch,
+        title=f"{waypoint} — Tribal Overflight",
+        author="Ingram Leedy",
+    )
+    doc.build(flow)
+    print(f"  wrote {pdf_path.name} ({pdf_path.stat().st_size / 1024:.1f} KB)")
+
+
 def main() -> int:
     NAVDATA.mkdir(parents=True, exist_ok=True)
+    styles = make_styles()
 
     overflight = NAVDATA / "Overflight_Considerations.pdf"
     special = NAVDATA / "Special_Airspace_Tribal.pdf"
@@ -173,11 +279,17 @@ def main() -> int:
     render(CONTENT / "overflight_considerations.md", overflight, "Overflight Considerations")
     render(CONTENT / "special_airspace_tribal.md", special, "Special Airspace — Tribal Lands")
 
-    # ForeFlight rich-waypoint naming: <WAYPOINT_NAME><DocumentName>.pdf
+    # Per-tribe rich-waypoint PDFs, keyed to waypoint code via ForeFlight's
+    # <WAYPOINT_NAME><DocumentName>.pdf naming convention.
+    enrich_by_name = load_enrichment_by_name()
     for wp in RICH_WAYPOINTS:
         dest = NAVDATA / f"{wp}Special_Airspace_Tribal.pdf"
-        shutil.copyfile(special, dest)
-        print(f"  linked {dest.name}")
+        if (TRIBES / f"{wp}.md").exists():
+            render_tribe_pdf(wp, enrich_by_name, styles, dest)
+        else:
+            # Fallback: copy the generic PDF if no per-tribe markdown stub exists.
+            shutil.copyfile(special, dest)
+            print(f"  fallback copied {dest.name} (no tribe stub)")
     return 0
 
 

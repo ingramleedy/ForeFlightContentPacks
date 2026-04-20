@@ -1,0 +1,38 @@
+{
+  "_comment": "Hand-curated documented tribal overflight assertions. Matched to Census NAME by case-insensitive substring (the enrichment script walks all reservations and applies an entry if any of its match_substrings is a case-insensitive substring of the reservation's NAME). These assertions are NOT enforceable against airspace users under federal law — FAA has exclusive airspace authority — but they shape how tribal governments respond to on-ground incidents.",
+
+  "red_lake": {
+    "match_substrings": ["red lake"],
+    "altitude_ft": 20000,
+    "summary": "Tribal resolution prohibits flights below 20,000 ft over Red Lake lands. Not on FAA sectionals; not FAA-enforced. Cited by Red Lake Nation to impound a 1946 Stinson 108 that made a safe engine-out emergency landing on a reservation road on 15 October 2025 (Smedsmo); aircraft still impounded as of March 2026 while the legal dispute continues. AOPA has requested federal intervention.",
+    "source": "Red Lake Band of Chippewa Indians Resolution No. 59-78 (1978). Reporting: AVweb https://avweb.com/aviation-news/aviation-law/pilot-settlement-tribal-aircraft-seizure/, AOPA, MPR News."
+  },
+
+  "snoqualmie": {
+    "match_substrings": ["snoqualmie"],
+    "altitude_ft": 500,
+    "summary": "Snoqualmie Tribal Airspace Protection Act (2024) sets a 500 ft AGL minimum generally and 2,000 ft above the highest obstacle within 3,000 ft of Snoqualmie Falls. Civil penalties up to $1,000. Tribal assertion, not FAA-enforced.",
+    "source": "Snoqualmie Tribal Council Act 6-4, Snoqualmie Tribal Airspace Protection Act, 27 June 2024. https://snoqualmietribe.us/wp-content/uploads/TribalCodes/Snoqualmie-Airspace-Protection-Act-6-4-June-27-2024.pdf"
+  },
+
+  "hualapai": {
+    "match_substrings": ["hualapai"],
+    "altitude_ft": 15000,
+    "summary": "Hualapai Tribe asserted authority over airspace up to 15,000 ft AGL after a 2009 paraglider landing incident. Dispute settled before codified case law emerged. Commercial air tour activity over Hualapai lands is separately regulated under 14 CFR 93 Subpart U (Grand Canyon SFRA).",
+    "source": "Hualapai Tribe v. de Antoni (settled 2010); Haney, 'Protecting Tribal Skies,' 40 Am. Indian L. Rev. 1 (2016). https://digitalcommons.law.ou.edu/ailr/vol40/iss1/"
+  },
+
+  "taos_pueblo": {
+    "match_substrings": ["taos pueblo"],
+    "altitude_ft": 5000,
+    "summary": "Voluntary FAA / Taos Pueblo Memorandum of Agreement (2011) asks pilots to remain above 5,000 ft AGL over the World Heritage Site and Blue Lake Wilderness. Sectional-cited advisory. Taos Pueblo Tribal Council has also asserted the position since 1990.",
+    "source": "Taos Pueblo / FAA MOA, December 2011; Taos Pueblo Tribal Council position, 1990. Reflected in the Albuquerque sectional and New Mexico Chart Supplement."
+  },
+
+  "navajo_nation": {
+    "match_substrings": ["navajo nation"],
+    "altitude_ft": null,
+    "summary": "No general numeric overflight altitude codified, but Navajo Nation Parks & Recreation prohibits aircraft and UAV operations over specific tribal parks (Monument Valley, Lake Powell Navajo Tribal Park, Tseyi Dine Heritage Area at Canyon de Chelly, Little Colorado River Gorge) without an approved flight plan. Grand Canyon SFRA (14 CFR 93 Subpart U) separately applies to portions of Navajo lands abutting the Grand Canyon.",
+    "source": "Navajo Nation Parks & Recreation permitting rules. https://navajonationparks.org/permits/"
+  }
+}

@@ -23,6 +23,7 @@ from shapely.geometry.multipolygon import MultiPolygon
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "raw_reservations.geojson"
+ENRICHMENT = ROOT / "data" / "enrichment.json"
 OUT = ROOT / "pack" / "layers" / "Indian_Reservations.kml"
 
 SIMPLIFY_TOLERANCE = 0.001  # degrees (~110 m at equator)
@@ -80,22 +81,54 @@ def style_xml() -> str:
     )
 
 
-def describe(props: dict) -> str:
+def load_enrichment() -> dict:
+    if ENRICHMENT.exists():
+        return json.loads(ENRICHMENT.read_text(encoding="utf-8"))
+    return {}
+
+
+def describe(props: dict, enrich: dict) -> str:
+    """Concise polygon-popup description — pilot-first, fewer lines than Points layer."""
+    name = props.get("NAME") or "Reservation"
     code = props.get("AIANNHCC") or ""
-    label = AIANNHCC_LABELS.get(code, code or "Reservation")
+    type_label = AIANNHCC_LABELS.get(code, code or "Reservation")
     land_mi2 = sq_meters_to_sq_miles(props.get("AREALAND") or 0)
-    water_mi2 = sq_meters_to_sq_miles(props.get("AREAWATER") or 0)
-    geoid = props.get("GEOID") or "n/a"
-    lines = [
-        f"<h3>{html.escape(props.get('NAME') or 'Reservation')}</h3>",
-        f"<p><b>Type:</b> {label}</p>",
-        f"<p><b>Land area:</b> {land_mi2:,.1f} sq mi</p>",
-    ]
-    if water_mi2 > 0.05:
-        lines.append(f"<p><b>Water area:</b> {water_mi2:,.1f} sq mi</p>")
-    lines.append(f"<p><b>GEOID:</b> {html.escape(str(geoid))}</p>")
-    lines.append("<p><i>See navdata for overflight considerations.</i></p>")
-    return "".join(lines)
+
+    parts = [f"<h3>{html.escape(name)}</h3>"]
+
+    assertion = enrich.get("tribal_overflight_assertion")
+    if assertion:
+        alt = assertion.get("altitude_ft")
+        alt_txt = f"{alt:,} ft" if alt else "see details"
+        parts.append(
+            f'<p><b>&#9888; Tribal overflight assertion ({alt_txt}).</b> '
+            f'Not FAA-enforced. See navdata PDF.</p>'
+        )
+
+    airports = enrich.get("nearest_airports") or []
+    if airports:
+        airport_str = " &middot; ".join(
+            f"<b>{html.escape(a['ident'])}</b> {a['nm']:.0f} NM"
+            for a in airports[:3]
+        )
+        parts.append(f"<p><b>Nearest airports:</b> {airport_str}</p>")
+
+    states = enrich.get("states") or []
+    states_str = ", ".join(states)
+    meta = [f"<b>Type:</b> {html.escape(type_label)}"]
+    if states_str:
+        meta.append(f"<b>States:</b> {html.escape(states_str)}")
+    meta.append(f"<b>Area:</b> {land_mi2:,.0f} sq mi")
+    pop = enrich.get("population_2020")
+    if pop is not None and pop > 0:
+        meta.append(f"<b>Pop:</b> {int(pop):,}")
+    parts.append("<p>" + " &nbsp; ".join(meta) + "</p>")
+
+    parts.append(
+        "<p><i>Tap the Points layer for tribal government, website, and more detail. "
+        "See navdata for overflight considerations.</i></p>"
+    )
+    return "".join(parts)
 
 
 def placemark_xml(name: str, desc_html: str, polys: list[Polygon]) -> str:
@@ -115,7 +148,7 @@ def placemark_xml(name: str, desc_html: str, polys: list[Polygon]) -> str:
     )
 
 
-def feature_to_xml(feat: dict) -> str | None:
+def feature_to_xml(feat: dict, enrichment: dict) -> str | None:
     props = feat.get("properties") or {}
     geom_json = feat.get("geometry")
     if not geom_json:
@@ -138,17 +171,20 @@ def feature_to_xml(feat: dict) -> str | None:
     if not polys:
         return None
 
-    return placemark_xml(name, describe(props), polys)
+    geoid = props.get("GEOID") or props.get("AIANNHNS") or name
+    enrich = enrichment.get(geoid) or {}
+    return placemark_xml(name, describe(props, enrich), polys)
 
 
 def main() -> int:
     data = json.loads(SRC.read_text(encoding="utf-8"))
     features = data["features"]
-    print(f"loaded {len(features)} features from {SRC.name}")
+    enrichment = load_enrichment()
+    print(f"loaded {len(features)} features; enrichment: {len(enrichment)} records")
 
     placemark_blobs: list[str] = []
     for feat in features:
-        pm = feature_to_xml(feat)
+        pm = feature_to_xml(feat, enrichment)
         if pm:
             placemark_blobs.append(pm)
 

@@ -3,10 +3,13 @@
 ForeFlight treats each KML in layers/ as its own toggleable layer, so this one
 ships alongside Indian_Reservations.kml and can be turned on/off independently.
 
-Each Placemark is a pure Point (no polygon) with the same rich HTML description
-used in the zone layer — tapping a point in ForeFlight opens the detail popup.
-Uses the same OGC namespace and inline-style-per-placemark pattern as the zone
-KML, matching ForeFlight's UserMapShapesSample.kml.
+Each Placemark is a pure Point (no polygon) with a rich HTML description that
+leads with pilot-relevant data (tribal overflight assertion, nearest airports,
+overflight courtesy guidance) and follows with demographic / cultural context
+from enrichment.json (Census + Wikidata).
+
+Matches the OGC namespace and inline-style-per-placemark pattern from
+ForeFlight's UserMapShapesSample.kml.
 """
 from __future__ import annotations
 
@@ -19,6 +22,7 @@ from shapely.geometry import shape
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "raw_reservations.geojson"
+ENRICHMENT = ROOT / "data" / "enrichment.json"
 OUT = ROOT / "pack" / "layers" / "Indian_Reservations_Points.kml"
 
 AIANNHCC_LABELS = {
@@ -26,7 +30,6 @@ AIANNHCC_LABELS = {
     "D8": "Tribal Designated Statistical Area",
 }
 
-# Small, visible orange pin to tie the points layer visually to the zone layer.
 ICON_HREF = "http://maps.google.com/mapfiles/kml/paddle/orange-circle.png"
 ICON_SCALE = 0.9
 LABEL_SCALE = 0.9
@@ -39,22 +42,100 @@ def sq_meters_to_sq_miles(m2) -> float:
         return 0.0
 
 
-def describe(props: dict) -> str:
+def fmt_int(n) -> str:
+    try:
+        return f"{int(n):,}"
+    except (TypeError, ValueError):
+        return ""
+
+
+def load_enrichment() -> dict:
+    if ENRICHMENT.exists():
+        return json.loads(ENRICHMENT.read_text(encoding="utf-8"))
+    return {}
+
+
+def describe(props: dict, enrich: dict) -> str:
+    """Build the HTML description in pilot-first order."""
+    name = props.get("NAME") or "Reservation"
     code = props.get("AIANNHCC") or ""
-    label = AIANNHCC_LABELS.get(code, code or "Reservation")
+    type_label = AIANNHCC_LABELS.get(code, code or "Reservation")
     land_mi2 = sq_meters_to_sq_miles(props.get("AREALAND") or 0)
-    water_mi2 = sq_meters_to_sq_miles(props.get("AREAWATER") or 0)
-    geoid = props.get("GEOID") or "n/a"
-    lines = [
-        f"<h3>{html.escape(props.get('NAME') or 'Reservation')}</h3>",
-        f"<p><b>Type:</b> {label}</p>",
-        f"<p><b>Land area:</b> {land_mi2:,.1f} sq mi</p>",
-    ]
-    if water_mi2 > 0.05:
-        lines.append(f"<p><b>Water area:</b> {water_mi2:,.1f} sq mi</p>")
-    lines.append(f"<p><b>GEOID:</b> {html.escape(str(geoid))}</p>")
-    lines.append("<p><i>See navdata for overflight considerations.</i></p>")
-    return "".join(lines)
+
+    parts = [f"<h3>{html.escape(name)}</h3>"]
+
+    # 1. TRIBAL OVERFLIGHT ASSERTION (most pilot-relevant — render prominently with ⚠)
+    assertion = enrich.get("tribal_overflight_assertion")
+    if assertion:
+        alt = assertion.get("altitude_ft")
+        alt_txt = f"{alt:,} ft" if alt else "see details"
+        summary = html.escape(assertion.get("summary", ""))
+        parts.append(
+            f'<p><b>&#9888; Tribal overflight assertion ({alt_txt}):</b> {summary} '
+            f'<i>(See navdata PDF. Not FAA-enforced.)</i></p>'
+        )
+
+    # 2. NEAREST AIRPORTS
+    airports = enrich.get("nearest_airports") or []
+    if airports:
+        airport_str = " &middot; ".join(
+            f"<b>{html.escape(a['ident'])}</b> {a['nm']:.0f} NM"
+            for a in airports[:3]
+        )
+        parts.append(f"<p><b>Nearest airports:</b> {airport_str}</p>")
+
+    # 3. OVERFLIGHT COURTESY (AC 91-36D) — shown unless an explicit assertion already covers it
+    if not assertion:
+        parts.append(
+            "<p><b>Overflight courtesy:</b> AC 91-36D suggests &ge;2,000 ft AGL over "
+            "noise-sensitive tribal lands.</p>"
+        )
+
+    # 4. TYPE / STATES / AREA (one compact line)
+    states = enrich.get("states") or []
+    states_str = ", ".join(states) if states else ""
+    meta_bits = [f"<b>Type:</b> {html.escape(type_label)}"]
+    if states_str:
+        meta_bits.append(f"<b>States:</b> {html.escape(states_str)}")
+    meta_bits.append(f"<b>Area:</b> {land_mi2:,.0f} sq mi")
+    parts.append("<p>" + " &nbsp; ".join(meta_bits) + "</p>")
+
+    # 5. TRIBAL GOVERNMENT + RECOGNIZED DATE (Wikidata-sourced)
+    wd = enrich.get("wikidata") or {}
+    gov_bits = []
+    if wd.get("label") and wd["label"] != name:
+        gov_bits.append(f"<b>Tribal government:</b> {html.escape(wd['label'])}")
+    if wd.get("federally_recognized"):
+        yr = wd["federally_recognized"][:4]
+        gov_bits.append(f"<b>Recognized:</b> {html.escape(yr)}")
+    if gov_bits:
+        parts.append("<p>" + " &nbsp; ".join(gov_bits) + "</p>")
+
+    # 6. POPULATION / HOUSING / LANGUAGE (Census + Wikidata)
+    demo_bits = []
+    pop = enrich.get("population_2020")
+    if pop is not None and pop > 0:
+        demo_bits.append(f"<b>Pop (2020):</b> {fmt_int(pop)}")
+    hu = enrich.get("housing_units_2020")
+    if hu is not None and hu > 0:
+        demo_bits.append(f"<b>Housing:</b> {fmt_int(hu)}")
+    if wd.get("languages"):
+        demo_bits.append(f"<b>Language:</b> {html.escape(wd['languages'][0])}")
+    if demo_bits:
+        parts.append("<p>" + " &nbsp; ".join(demo_bits) + "</p>")
+
+    # 7. WEBSITE (Wikidata-sourced)
+    if wd.get("website"):
+        url = html.escape(wd["website"])
+        display = url.replace("https://", "").replace("http://", "").rstrip("/")
+        parts.append(f'<p><b>Website:</b> <a href="{url}">{html.escape(display)}</a></p>')
+
+    # 8. FOOTER pointer
+    parts.append(
+        "<p><i>Full overflight considerations: navdata/Overflight_Considerations.pdf</i></p>"
+    )
+
+    return "".join(parts)
 
 
 def centroid_latlon(props: dict, geom_json: dict) -> tuple[float, float] | None:
@@ -97,7 +178,8 @@ def placemark_xml(name: str, desc_html: str, lat: float, lon: float) -> str:
 def main() -> int:
     data = json.loads(SRC.read_text(encoding="utf-8"))
     features = data["features"]
-    print(f"loaded {len(features)} features")
+    enrichment = load_enrichment()
+    print(f"loaded {len(features)} features; enrichment: {len(enrichment)} records")
 
     blobs: list[str] = []
     skipped = 0
@@ -112,7 +194,9 @@ def main() -> int:
             skipped += 1
             continue
         lat, lon = pt
-        blobs.append(placemark_xml(name, describe(props), lat, lon))
+        geoid = props.get("GEOID") or props.get("AIANNHNS") or name
+        enrich = enrichment.get(geoid) or {}
+        blobs.append(placemark_xml(name, describe(props, enrich), lat, lon))
 
     header = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
