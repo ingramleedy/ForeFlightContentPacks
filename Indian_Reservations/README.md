@@ -115,6 +115,41 @@ python scripts/package.py                 # writes manifest + zips the pack
 
 Each script is idempotent. Intermediate data in `data/` is git-ignored; the built pack in `pack/` and the top-level `Indian_Reservations_Pack.zip` are committed so the zip can be downloaded directly without running the pipeline.
 
+### Pre-zip validation
+
+[`scripts/validate_pack.py`](scripts/validate_pack.py) runs automatically from `scripts/package.py` and the build **fails fast** if anything is wrong with the pack. Checks include:
+
+- Zip layout (flat: `layers/`, `navdata/`, `manifest.json` at root; no parent folder).
+- `manifest.json` — valid JSON, required fields, ForeFlight date format.
+- **No non-ASCII bytes** in KML `<name>` or outside CDATA — we hit this with an em-dash in a layer name.
+- Every KML parses as XML.
+- No unsupported elements (`<BalloonStyle>`, `<Folder>`, `<NetworkLink>`, `<GroundOverlay>`).
+- Every `<Polygon>` has `<tessellate>1</tessellate>` (without it, ForeFlight will not render the fill).
+- No `<Point>` embedded inside a `<MultiGeometry>` alongside `<Polygon>` — that combination makes ForeFlight render only the Point and drop the polygon fill.
+- Each Placemark uses inline `<Style>` (shared `<styleUrl>` references are warned, since ForeFlight's pack loader can drop them).
+- Every `<color>` is 8-char AABBGGRR.
+- Point placemark coordinates in range; descriptions wrapped in CDATA when they contain HTML.
+- Waypoint CSV: 4 columns, alphanumeric codes ≤ 10 chars, unique, numeric lat/lon in range.
+- PDFs start with `%PDF-` magic bytes.
+- Pack total under 10 MB, individual KML under 5 MB.
+
+Run it standalone at any time:
+
+```bash
+python scripts/validate_pack.py           # validates ./pack/
+python scripts/validate_pack.py --zip Indian_Reservations_Pack.zip
+```
+
+### Layer ordering
+
+The pack ships two overlapping map layers. To keep the tappable pins on the Points layer from being obscured by the translucent zone polygons:
+
+- Every zone placemark carries `<drawOrder>1</drawOrder>`.
+- Every point placemark carries `<drawOrder>10</drawOrder>` (higher renders on top).
+- Zone fill alpha is kept low (0x55, ~33%) so pins are visible even if ForeFlight ignores `<drawOrder>`.
+
+If the polygons still appear to cover the pins in ForeFlight, toggle the Points layer off and back on in the layer selector — that forces it to the top of the render stack.
+
 ## Disclaimer
 
 This pack is for situational awareness only. It is **not** a substitute for current FAA publications, sectional charts, the Chart Supplement, or NOTAMs. It is **not** legal advice — consult your insurance carrier and an aviation attorney for specifics. Tribes and reservations evolve; the underlying data and tribal assertions may change between pack releases. Always check current sources before flight.

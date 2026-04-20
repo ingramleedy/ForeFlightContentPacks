@@ -169,10 +169,14 @@ def style_xml(warn: bool = False) -> str:
 
 
 def placemark_xml(name: str, desc_html: str, lat: float, lon: float, warn: bool = False) -> str:
+    # drawOrder=10 so points render ABOVE the zone polygons (which use drawOrder=1).
+    # ForeFlight may or may not honor <drawOrder>; the translucent polygon fill is
+    # also reduced to keep pins visible either way.
     return (
         "<Placemark>"
         f"<name>{html.escape(name)}</name>"
         f"<description><![CDATA[{desc_html}]]></description>"
+        "<drawOrder>10</drawOrder>"
         f"{style_xml(warn=warn)}"
         f"<Point><coordinates>{lon:.5f},{lat:.5f},0</coordinates></Point>"
         "</Placemark>"
@@ -207,7 +211,7 @@ def main() -> int:
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<kml xmlns="http://www.opengis.net/kml/2.2">\n'
         "<Document>\n"
-        "<name>Indian Reservations — Points</name>\n"
+        "<name>Indian Reservations - Points</name>\n"
         "<open>1</open>\n"
         "<description>Tappable centroid points for each federal Indian reservation. "
         "Pair with the Indian Reservations zone layer.</description>\n"

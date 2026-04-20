@@ -1,12 +1,14 @@
 """Write manifest.json into the pack folder and zip it for ForeFlight import.
 
-Emits Indian_Reservations_Pack.zip alongside the pack/ folder. Fails loudly if
-the zip exceeds the 10 MB target.
+Runs scripts/validate_pack.py before zipping — build fails fast on any issue
+the validator catches (non-ASCII bytes in names, bad color format, Point
+embedded inside polygon MultiGeometry, etc.). Size limits are also enforced.
 """
 from __future__ import annotations
 
 import json
 import shutil
+import subprocess
 import sys
 import zipfile
 from datetime import datetime, timezone
@@ -51,8 +53,21 @@ def zip_pack() -> int:
     return 0
 
 
+def run_validator() -> int:
+    """Run scripts/validate_pack.py against pack/ before zipping."""
+    validator = Path(__file__).resolve().parent / "validate_pack.py"
+    if not validator.exists():
+        print("WARNING: validate_pack.py not found; skipping pre-zip validation", file=sys.stderr)
+        return 0
+    print("running pre-zip validation...")
+    return subprocess.call([sys.executable, str(validator), str(PACK)])
+
+
 def main() -> int:
     write_manifest()
+    if run_validator() != 0:
+        print("ERROR: validator reported errors; refusing to zip. Fix and re-run.", file=sys.stderr)
+        return 1
     return zip_pack()
 
 

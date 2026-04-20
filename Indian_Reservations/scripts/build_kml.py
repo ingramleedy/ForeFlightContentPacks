@@ -32,11 +32,12 @@ COORD_DECIMALS = 5
 # KML color is AABBGGRR. Two styles: default orange for most reservations, and
 # a "warn" red outline for the small number with a documented tribal overflight
 # assertion (pilots should pay attention — see navdata PDF).
-FILL_COLOR = "802060c0"       # translucent warm orange (alpha 50%, RGB 192/96/32)
+FILL_COLOR = "552060c0"       # light translucent warm orange (alpha 33%, RGB 192/96/32)
+                              # Kept low so Point-layer pins remain visible through the fill.
 OUTLINE_COLOR = "ff00a0ff"    # opaque bright orange (RGB 255/160/0)
 OUTLINE_WIDTH = 2.5
 
-WARN_FILL_COLOR = "802060e0"  # slightly more saturated orange (RGB 224/96/32)
+WARN_FILL_COLOR = "552060e0"  # light translucent saturated orange (alpha 33%, RGB 224/96/32)
 WARN_OUTLINE_COLOR = "ff0020ff"  # opaque red (RGB 255/32/0) — universal "caution"
 WARN_OUTLINE_WIDTH = 3.5
 
@@ -151,6 +152,7 @@ def placemark_xml(name: str, desc_html: str, polys: list[Polygon], warn: bool = 
         "<Placemark>"
         f"<name>{html.escape(name)}</name>"
         f"<description><![CDATA[{desc_html}]]></description>"
+        "<drawOrder>1</drawOrder>"  # zones render BELOW points (points use drawOrder 10)
         f"{style_xml(warn=warn)}"
         f"{geom}"
         "</Placemark>"
