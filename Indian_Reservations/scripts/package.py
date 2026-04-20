@@ -30,7 +30,7 @@ def write_manifest() -> None:
     version = float(now.strftime("%Y%m%d.%H%M"))
     manifest = {
         "name": "Indian Reservations",
-        "abbreviation": "IR.V1",
+        "abbreviation": "IR.V2",
         "version": version,
         "effectiveDate": now.strftime("%Y%m%dT%H:%M:%SZ"),
         "organizationName": "Ingram Leedy",

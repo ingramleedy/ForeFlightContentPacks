@@ -1,15 +1,16 @@
-"""Build the ForeFlight waypoint CSV of reservation centroids.
+"""Build the ForeFlight waypoint CSV for the 5 reservations that have rich
+per-tribe PDFs (HUALAPAI, HAVASUPAI, NAVAJO, TAOSPUEB, REDLAKE). These CSV
+entries anchor the ForeFlight `<WAYPOINT_NAME><DocumentName>.pdf` convention
+so tapping the waypoint opens the matching PDF.
 
-Uses the Census-supplied internal point (INTPTLAT/INTPTLON) which is guaranteed
-to fall inside the polygon, falling back to a computed centroid if missing.
+Every other reservation is represented by the Points KML in navdata/ (tappable
+popup) plus the zone KML in layers/ (polygon), so adding the other 307 to the
+CSV just produces duplicate map markers at the same centroid. The pack ships
+with abbreviation bumped to IR.V2 so ForeFlight treats this as a new pack
+rather than an update that shrunk the CSV (which would fail to install).
 
 Output format per ForeFlight content-pack spec:
     WAYPOINT_NAME,Description,Lat,Lon
-
-Waypoint names are sanitized to uppercase alphanumeric, <= 10 chars, and made
-unique across the file. The 5 rich waypoints (HUALAPAI, HAVASUPAI, NAVAJO,
-TAOSPUEB, REDLAKE) are forced to fixed codes so their per-tribe PDFs line up
-with the ForeFlight `<WAYPOINT_NAME><DocumentName>.pdf` convention.
 """
 from __future__ import annotations
 
@@ -93,18 +94,16 @@ def main() -> int:
         name = props.get("NAME") or props.get("BASENAME") or ""
         if not name:
             continue
+        # Only emit CSV rows for the 5 reservations that have rich PDFs.
+        forced = override_for(name)
+        if not forced or forced in taken:
+            continue
         pt = centroid_latlon(props, feat.get("geometry"))
         if pt is None:
             continue
         lat, lon = pt
-
-        forced = override_for(name)
-        if forced and forced not in taken:
-            code = forced
-            taken.add(code)
-        else:
-            code = unique(sanitize(name), taken)
-
+        code = forced
+        taken.add(code)
         description = name.replace(",", " ").strip()
         rows.append((code, description, lat, lon))
 
