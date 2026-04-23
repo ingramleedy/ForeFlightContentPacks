@@ -15,6 +15,24 @@ A collection of ForeFlight content packs for general aviation pilots. Every pack
 | [New_York_Scenic](New_York_Scenic/) | Hudson River / East River SFRA reporting points + Statue of Liberty orbit waypoints. | ~1.9 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/New_York_Scenic/New_York_Scenic_Pack.zip?raw=true) |
 | [Timezones](Timezones/) | World time zone boundaries with UTC offsets as a toggleable KML layer. | ~242 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Timezones/Timezones_Pack.zip?raw=true) |
 
+## Other first-party pilot content (separate repo)
+
+Not a content pack (imported via ForeFlight's **Map Elements → Custom Map Overlays**, not **More → Content Packs**), but ships alongside this collection on the [listing site](https://ingramleedy.github.io/foreflight-content-packs/):
+
+| Project | Description | Size | Download |
+|---|---|---|---|
+| [Diners, Drive-Ins and Dives](https://github.com/ingramleedy/ForeFlightDinersDriveInsDives) | 1,000+ *DDD* restaurants scraped from the Food Network A–Z listing and geocoded into a ForeFlight KML overlay — tap a pin for name, address, phone, and description. | ~366 KB | [.kml](https://github.com/ingramleedy/ForeFlightDinersDriveInsDives/blob/main/output/DDD_Restaurants.kml?raw=true) |
+
+## Related projects
+
+Other pilot tools I've built (or helped build) that pair well with ForeFlight. Not content packs — standalone apps and utilities, listed here so this README stays the master of what is featured on the [listing site](https://ingramleedy.github.io/foreflight-content-packs/).
+
+| Project | What it does | Link |
+|---|---|---|
+| **FlightStreamX** (iOS) | Wirelessly transmits the active ForeFlight (or Garmin Pilot) flight plan to X-Plane over local Wi-Fi — auto-discovers X-Plane on the network, converts the plan to FMS 1100 format, and loads it into the sim, no manual file transfer. By Flying Dragons. $8.99. | [App Store](https://apps.apple.com/us/app/flightstreamx/id6759071019) |
+| **SkySkew** (iOS) | Turns Skew-T diagrams into plain-English route insights for turbulence, icing, and winds aloft. AI-assisted interpretation, route-specific atmospheric data, iPad-optimized. By Flying Dragons. 14-day trial, $2.99/mo or $29.99/yr. | [App Store](https://apps.apple.com/us/app/skyskew/id6741827720) |
+| **AIRAC Cycle Calendar Generator** | Free web tool + API that generates an iCalendar (`.ics`) of every AIRAC effective date so your Garmin / ForeFlight / Navigraph / Jeppesen database updates never sneak up on you. Optional 7- or 14-day reminder events. | [airac.flyingdragons.world](https://airac.flyingdragons.world/api/airac) · [GitHub](https://github.com/ingramleedy/AIRAC) · [Diamond Aviators forum](https://www.diamondaviators.net/forum/viewtopic.php?t=10041) |
+
 ## Other packs referenced on the listing site
 
 These packs are featured on the [public listing site](https://ingramleedy.github.io/foreflight-content-packs/) but are maintained by other authors and are not hosted in this repo. Included here so this README stays the master of what is on the site.
