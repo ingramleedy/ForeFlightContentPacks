@@ -1,5 +1,7 @@
 # Indian Reservations Content Pack for ForeFlight
 
+**Download:** [Indian_Reservations_Pack.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Indian_Reservations/Indian_Reservations_Pack.zip?raw=true)
+
 This repository provides a **ForeFlight content pack** that overlays all 312 U.S. federal American Indian reservations on your map, plus a separate tappable waypoint layer with per-reservation detail and reference PDFs covering overflight considerations, special airspace, and the legal/operational reality of tribal sovereignty on the ground.
 
 The pack ships two independent layers that toggle separately — a polygon zone layer for spatial awareness, and a points layer for "what is this place, and is there anything I need to know about flying over it?" — plus navdata PDFs and per-tribe rich-waypoint documents for the five reservations with documented tribal overflight assertions (Red Lake, Snoqualmie, Hualapai, Taos Pueblo, Navajo Nation).

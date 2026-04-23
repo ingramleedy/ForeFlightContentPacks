@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>New York Class B Airspace Hudson River and East River Exclusion SFRA.kmz</name>
+	<Style id="listing_A">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<Style id="listing_A0">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="listing_A00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#listing_A5</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#listing_A15</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="listing_A1">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<Style id="listing_A11">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="listing_A12">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#listing_A1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#listing_A16</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="listing_A13">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="listing_A14">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#listing_A11</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#listing_A13</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="listing_A15">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<Style id="listing_A16">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<Style id="listing_A10">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="listing_A2">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#listing_A0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#listing_A</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="listing_A20">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/B.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<Style id="listing_A3">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/C.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<Style id="listing_A4">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/D.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<Style id="listing_A5">
+		<IconStyle>
+			<Icon>
+				<href>https://www.google.com/mapfiles/kml/paddle/E.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text>$[description]</text>
+		</BalloonStyle>
+		<LineStyle>
+			<color>00ffffff</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="listing_A6">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#listing_A3</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#listing_A10</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="listing_A7">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#listing_A20</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#listing_A4</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<PolyStyle>
+			<color>ff2e63fd</color>
+		</PolyStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<PolyStyle>
+			<color>fff8ffa3</color>
+		</PolyStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<PolyStyle>
+			<color>fff8ffa3</color>
+		</PolyStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<PolyStyle>
+			<color>ff2e63fd</color>
+		</PolyStyle>
+	</Style>
+	<Folder>
+		<name>New York Class B Airspace Hudson River and East River Exclusion SFRA</name>
+		<open>1</open>
+		<Placemark id="1.2.1">
+			<name>Statue of Liberty</name>
+			<address>New York, NY 10004</address>
+			<phoneNumber>(212) 363-3200</phoneNumber>
+			<snippet>New York, NY 10004</snippet>
+			<description><![CDATA[
+			<img style="max-width:500px;" alt="Statue of Liberty" src="files/statue.jpg"><br/>
+			<img style="max-width:500px;" alt="kneeboard" src="files/NYC_SFRA.png">
+
+
+Circling the Statue of Liberty
+• Do so at the highest practical altitude below 1,000 feet MSL
+• Circle in a counter-clockwise direction
+• Be aware that local helicopter tour operators fly an irregular
+pattern near the Statue of Liberty at approximately 500 feet
+• Remain especially vigilant for other traffic in the vicinity of the
+Statue of Liberty]]></description>
+			<styleUrl>#listing_A00</styleUrl>
+			<ExtendedData>
+				<Data name="placepageUri">
+					<value>https://www.google.com/earth/rpc/entity?lat=40.7186&amp;lng=-73.9961&amp;fid=0x89c25090129c363d:0x40c6a5770d25022b&amp;hl=en&amp;gl=us&amp;client=earth-client&amp;cv=7.3.6.9345&amp;useragent=GoogleEarth/7.3.6.9345(Macintosh;Mac OS X (13.2.1);en;kml:2.2;client:Pro;type:default)</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>-74.04450039999999,40.6892494,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="1.2.1">
+			<name>Verrazzano-Narrows Bridge</name>
+			<address>Verrazzano-Narrows Bridge, Staten Island, NY</address>
+			<phoneNumber>(212) 360-3000</phoneNumber>
+			<snippet>Verrazzano-Narrows Bridge, Staten Island, NY</snippet>
+			<description><![CDATA[<img style="max-width:500px;" alt="Statue of Liberty" src="files/verrazano.jpg"><br/>
+			<img style="max-width:500px;" alt="kneeboard" src="files/NYC_SFRA.png">]]></description>
+			<styleUrl>#listing_A2</styleUrl>
+			<ExtendedData>
+				<Data name="placepageUri">
+					<value>https://www.google.com/earth/rpc/entity?lat=40.6066162&amp;lng=-74.0446602&amp;fid=0x89c24f9d7467b16d:0x8a96b2e377bdf33f&amp;hl=en&amp;gl=us&amp;client=earth-client&amp;cv=7.3.6.9345&amp;useragent=GoogleEarth/7.3.6.9345(Macintosh;Mac OS X (13.2.1);en;kml:2.2;client:Pro;type:default)</value>
+				</Data>
+			</ExtendedData>
+			<MultiGeometry>
+				<Point>
+					<coordinates>-74.0446602,40.6066162,0</coordinates>
+				</Point>
+				<LinearRing>
+					<coordinates>
+						-74.0479819646628,40.6041248765029,0 -74.0479819646628,40.6091075234971,0 -74.0413384353372,40.6091075234971,0 -74.0413384353372,40.6041248765029,0 -74.0479819646628,40.6041248765029,0 
+					</coordinates>
+				</LinearRing>
+			</MultiGeometry>
+		</Placemark>
+		<Placemark id="1.2.1">
+			<name>Colgate Clock</name>
+			<address>Jersey City, NJ 07302</address>
+			<snippet>Jersey City, NJ 07302</snippet>
+			<styleUrl>#listing_A6</styleUrl>
+			<description><![CDATA[Colgate Clock<br/>
+<img style="max-width:500px;" src="files/colgate_clock.jpeg"><br/>
+<img style="max-width:500px;" alt="kneeboard" src="files/NYC_SFRA.png">
+]]></description> 
+			<ExtendedData>
+				<Data name="placepageUri">
+					<value>https://www.google.com/earth/rpc/entity?lat=40.7120161&amp;lng=-74.0338505&amp;fid=0x89c250a63bcc1c75:0x22b1fe0fbbb00ce5&amp;hl=en&amp;gl=us&amp;client=earth-client&amp;cv=7.3.6.9345&amp;useragent=GoogleEarth/7.3.6.9345(Macintosh;Mac OS X (13.2.1);en;kml:2.2;client:Pro;type:default)</value>
+				</Data>
+			</ExtendedData>
+			<MultiGeometry>
+				<Point>
+					<coordinates>-74.0338505,40.7120161,0</coordinates>
+				</Point>
+				<LinearRing>
+					<coordinates>
+						-74.0371670227437,40.7095287079422,0 -74.0371670227437,40.7145034920578,0 -74.0305339772563,40.7145034920578,0 -74.0305339772563,40.7095287079422,0 -74.0371670227437,40.7095287079422,0 
+					</coordinates>
+				</LinearRing>
+			</MultiGeometry>
+		</Placemark>
+		<Placemark id="1.2.1">
+			<name>Intrepid Sea, Air &amp; Space Museum</name>
+			<address>Pier 86, W 46th St, New York, NY 10036</address>
+			<phoneNumber>(212) 245-0072</phoneNumber>
+			<snippet>Pier 86, W 46th St, New York, NY 10036</snippet>
+			<styleUrl>#listing_A14</styleUrl>
+			<description><![CDATA[Intrepid Aircraft Carrier<br/><br/>
+
+<img style="max-width:500px;" src="files/intrepid.jpg"><br/>
+<img style="max-width:500px;" alt="kneeboard" src="files/NYC_SFRA.png">
+]]></description> 
+			<ExtendedData>
+				<Data name="placepageUri">
+					<value>https://www.google.com/earth/rpc/entity?lat=40.764526599999996&amp;lng=-73.99960759999999&amp;fid=0x89c2584ed560199f:0x22362b652743ff1&amp;hl=en&amp;gl=us&amp;client=earth-client&amp;cv=7.3.6.9345&amp;useragent=GoogleEarth/7.3.6.9345(Macintosh;Mac OS X (13.2.1);en;kml:2.2;client:Pro;type:default)</value>
+				</Data>
+			</ExtendedData>
+			<MultiGeometry>
+				<Point>
+					<coordinates>-73.99960759999999,40.7645266,0</coordinates>
+				</Point>
+				<LinearRing>
+					<coordinates>
+						-74.0029215127505,40.7620411654371,0 -74.0029215127505,40.7670120345629,0 -73.9962936872495,40.7670120345629,0 -73.9962936872495,40.7620411654371,0 -74.0029215127505,40.7620411654371,0 
+					</coordinates>
+				</LinearRing>
+			</MultiGeometry>
+		</Placemark>
+		<Placemark id="1.2.1">
+			<name>George Washington Bridge</name>
+			<address>George Washington Bridge, Fort Lee, NJ 07024</address>
+			<snippet>George Washington Bridge, Fort Lee, NJ 07024</snippet>
+			<styleUrl>#listing_A12</styleUrl>
+			<description><![CDATA[George Washington Bridge<br/><br/>
+
+<img style="max-width:500px;" src="files/gw.jpg"><br/>
+<img style="max-width:500px;" alt="kneeboard" src="files/NYC_SFRA.png">
+]]></description>
+			<ExtendedData>
+				<Data name="placepageUri">
+					<value>https://www.google.com/earth/rpc/entity?lat=40.8516964&amp;lng=-73.9527159&amp;fid=0x89c2f6bdce18ab07:0x43e0227030fb8c72&amp;hl=en&amp;gl=us&amp;client=earth-client&amp;cv=7.3.6.9345&amp;useragent=GoogleEarth/7.3.6.9345(Macintosh;Mac OS X (13.2.1);en;kml:2.2;client:Pro;type:default)</value>
+				</Data>
+			</ExtendedData>
+			<MultiGeometry>
+				<Point>
+					<coordinates>-73.9527159,40.8516964,0</coordinates>
+				</Point>
+				<LinearRing>
+					<coordinates>
+						-73.9560254591064,40.8492142306702,0 -73.9560254591064,40.8541785693298,0 -73.9494063408936,40.8541785693298,0 -73.9494063408936,40.8492142306702,0 -73.9560254591064,40.8492142306702,0 
+					</coordinates>
+				</LinearRing>
+			</MultiGeometry>
+		</Placemark>
+		<Placemark id="1.2.1">
+			<name>Alpine Tower</name>
+			<address>293 Rte 9W, Alpine, NJ 07620</address>
+			<snippet>293 Rte 9W, Alpine, NJ 07620</snippet>
+			<description><![CDATA[Alpine Tower<br/><br/>
+
+<img style="max-width:500px;" alt="Alpine Tower" src="files/alpine_tower.png"><br/>
+<img style="max-width:500px;" alt="kneeboard" src="files/NYC_SFRA.png">
+
+]]></description>
+			<styleUrl>#listing_A7</styleUrl>
+			<ExtendedData>
+				<Data name="placepageUri">
+					<value>https://www.google.com/earth/rpc/entity?lat=40.96043530000001&amp;lng=-73.9224955&amp;fid=0x89c2ede8f4039ba3:0x1f18be935ad1764c&amp;hl=en&amp;gl=us&amp;client=earth-client&amp;cv=7.3.6.9345&amp;useragent=GoogleEarth/7.3.6.9345(Macintosh;Mac OS X (13.2.1);en;kml:2.2;client:Pro;type:default)</value>
+				</Data>
+			</ExtendedData>
+			<MultiGeometry>
+				<Point>
+					<coordinates>-73.9224955,40.9604353,0</coordinates>
+				</Point>
+				<LinearRing>
+					<coordinates>
+						-73.9257996197928,40.9579572101554,0 -73.9257996197928,40.9629133898446,0 -73.9191913802072,40.9629133898446,0 -73.9191913802072,40.9579572101554,0 -73.9257996197928,40.9579572101554,0 
+					</coordinates>
+				</LinearRing>
+			</MultiGeometry>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

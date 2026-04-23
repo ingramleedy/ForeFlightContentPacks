@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Mountain passes</name>
+	<open>1</open>
+	<atom:link rel="app" href="https://www.google.com/earth/about/versions/#earth-pro" title="Google Earth Pro 7.3.6.10441"></atom:link>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<color>ff00ffff</color>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff7fffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+		</BalloonStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<color>ff00ffff</color>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff7fffff</color>
+		</LabelStyle>
+		<BalloonStyle>
+		</BalloonStyle>
+	</Style>
+	<GroundOverlay>
+		<name>Commonly Flown Mountain Passes</name>
+		<Camera>
+			<longitude>-106.7466874636722</longitude>
+			<latitude>37.40741376225535</latitude>
+			<altitude>1195498.043424056</altitude>
+			<heading>8.010022178849878</heading>
+			<tilt>0</tilt>
+			<roll>0</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<color>a3ffffff</color>
+		<Icon>
+			<href>C:/Users/ingra/OneDrive/Pilot/UNSORTED/MOUNTAIN FLYING/passes_1842645609.gif</href>
+			<viewBoundScale>0.75</viewBoundScale>
+		</Icon>
+		<gx:LatLonQuad>
+			<coordinates>
+				-108.8841781746843,36.04363322227938,0 -104.0913344096541,36.02592863974243,0 -103.9659314469231,40.90508146740992,0 -109.0072088541737,40.95794980810417,0 
+			</coordinates>
+		</gx:LatLonQuad>
+	</GroundOverlay>
+	<Placemark>
+		<name>Cerro Summit (VPCIR) 8,200&apos;</name>
+		<description>Located about 14 miles east of Montrose, Colorado 
+at an elevation of 8,200’ MSL. N38°26’ 42.04”
+W107°38’ 23.30”.</description>
+		<Camera>
+			<longitude>-105.883582906813</longitude>
+			<latitude>39.95092528984558</latitude>
+			<altitude>143712.2627451112</altitude>
+			<heading>-62.53808590979434</heading>
+			<tilt>0.311817765917452</tilt>
+			<roll>-68.0313297793916</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-107.5697472222222,38.42683215106022,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cochetopa and North Pass (VPOPA) 10,149&apos;</name>
+		<description>Cochetopa and North Pass (VFR Waypoint-VPOPA) 
+Route: Located between San Luis Valley and 
+Gunnison area in the center of the state. Road 
+elevations - Cochetopa 10,067’ MSL, North 10,149’ 
+MSL. The vicinity of these adjacent passes is 
+partially visible from Alamosa and Gunnison 
+weather reporting stations. Elevations and weather 
+often favor these passes over Monarch Pass. 
+N38°10’-W106°36.04’.</description>
+		<Camera>
+			<longitude>-106.2917499605536</longitude>
+			<latitude>39.52238707404872</latitude>
+			<altitude>74194.52493955154</altitude>
+			<heading>-3.775966369969033</heading>
+			<tilt>39.34273778049975</tilt>
+			<roll>-0.5912085276312554</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.6006166666667,38.16663085039564,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cottonwood Pass (Near Eagle, CO)  (VPCTN) 8,280&apos;</name>
+		<description>An alternative to following the river over Glenwood 
+Canyon with better options for emergency landing 
+sites. N39°31.83’-W107°3.49’. 
+
+</description>
+		<Camera>
+			<longitude>-108.1102126320286</longitude>
+			<latitude>37.7348253790919</latitude>
+			<altitude>1268310.934258182</altitude>
+			<heading>-5.197715962920303</heading>
+			<tilt>1.884455338343061</tilt>
+			<roll>-9.538118948443991</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.1533549074788,38.10800701071476,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Dallas Divide (VPDAL) 9,000&apos;</name>
+		<description>Located on State Highway 62 about 12 miles west of 
+the town of Ridgeway, Colorado at an elevation of 
+9,000’ MSL. N38°5’ 41.97”-W107°53’ 22.47”. </description>
+		<Camera>
+			<longitude>-107.2814739931617</longitude>
+			<latitude>40.51966843848314</latitude>
+			<altitude>1147512.131517173</altitude>
+			<heading>-7.486542790575068</heading>
+			<tilt>0.7019171574816433</tilt>
+			<roll>-90.31335844110139</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-107.8895861111111,38.09501129261503,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Douglas (VPDGP) 8,268&apos;</name>
+		<description>Route: Grand Junction to Northwestern Colorado (Rangely). Road elevation 8,268’ MSL. The vicinity of the pass is partially visible to weather reporting station at Grand Junction. N39°35.85’-W108°48.19’.</description>
+		<Camera>
+			<longitude>-108.1122054365642</longitude>
+			<latitude>37.91434623962938</latitude>
+			<altitude>86215.33510085334</altitude>
+			<heading>37.11205669615642</heading>
+			<tilt>0.9899279252794884</tilt>
+			<roll>-45.17478210748359</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.8102416666667,39.60071514876175,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hagerman (VPHGR) 11,960&apos;</name>
+		<description>Route: Leadville to Aspen. Approximate trail 
+elevation 11,960’ MSL. This pass is visible to the 
+weather reporting station at Leadville. Elevation, 
+terrain features, and weather often favor this pass 
+over Independence Pass. N39°15.9’-W106°29.03’. </description>
+		<Camera>
+			<longitude>-108.3416559003442</longitude>
+			<latitude>38.77616871365714</latitude>
+			<altitude>433886.6212509698</altitude>
+			<heading>30.52236728054626</heading>
+			<tilt>0.8956049532941138</tilt>
+			<roll>-51.63315615388964</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.4838861111111,39.26500854052875,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hoosier (VPOOZ) 11,539&apos;</name>
+		<description>Route: South Park to Breckenridge. Road elevation is 11,539’ MSL. This pass is not visible from any airports or weather reporting stations. This pass provides access from the north to South Park. N39° 21.7’-W106° 3.75’.</description>
+		<Camera>
+			<longitude>-106.4129863134534</longitude>
+			<latitude>39.14921899825384</latitude>
+			<altitude>85157.18442204135</altitude>
+			<heading>31.73068259087198</heading>
+			<tilt>0.8956038087512741</tilt>
+			<roll>-51.64898233749135</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.0561055555555,39.37146408140179,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Kenosha (VPKEN) 10,001&apos;</name>
+		<description>Route: Southwest Denver to South Park and Arkansas Valley. Road elevation 10,001’ MSL. This pass follows Hwy 285 from Denver to Buena Vista. N39°6.53’-W106°33.83’.</description>
+		<Camera>
+			<longitude>-106.4229186566749</longitude>
+			<latitude>39.13513116433184</latitude>
+			<altitude>77693.38703231799</altitude>
+			<heading>31.72441256878591</heading>
+			<tilt>0.8956038080606542</tilt>
+			<roll>-51.64895616551357</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.7561805555555,39.41338555994214,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>La Veta (VPVPT) 9,380&apos;</name>
+		<description>Route: Southwest Colorado and Walsenburg to San Luis Valley and Alamosa. Road elevation 9,380’ MSL. This pass is part of the Mountain AWOS program. La Veta AWOS 119.925(VTP). Expect turbulence and up/down drafts during this pass crossing with light to moderate winds aloft. N37°35.59’-W105°12.2’.</description>
+		<Camera>
+			<longitude>-108.234185564162</longitude>
+			<latitude>40.01241767870852</latitude>
+			<altitude>572549.3196494092</altitude>
+			<heading>8.300973243431928</heading>
+			<tilt>0.7306663458372241</tilt>
+			<roll>-74.00771970334975</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.2166138888889,37.61390505699084,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Marshall (VPMRL) 10,845&apos;</name>
+		<description>Route: San Luis Valley and Salida to Gunnison. Track elevation 10,845’ MSL. The vicinity of this pass is partially visible to weather observation in Salida. Weather and terrain often favor this pass over Monarch. N38°23.48’-W106°14.83’.</description>
+		<Camera>
+			<longitude>-108.234185564162</longitude>
+			<latitude>40.01241767870852</latitude>
+			<altitude>572549.3196494092</altitude>
+			<heading>8.300973243431928</heading>
+			<tilt>0.7306663458372241</tilt>
+			<roll>-74.00771970334975</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.2471313430985,38.39129380977521,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>McClure (VPMCR) 8,755&apos;</name>
+		<description>Route: Aspen/ Glenwood Springs to Montrose area. Road elevation 8,755’ MSL. N39°7.73’-W107°17.03’</description>
+		<Camera>
+			<longitude>-107.4829826086555</longitude>
+			<latitude>38.62698512143967</latitude>
+			<altitude>568793.3144257333</altitude>
+			<heading>8.744280243765854</heading>
+			<tilt>0.7306638764705052</tilt>
+			<roll>-74.00788843321693</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-107.2886361111111,39.12942106277551,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Mosca (VPMSC) 9,740&apos;</name>
+		<description>Route: Pueblo to Alamosa over the Great Sand Dunes National Park. Trail elevation 9,740’ MSL. Le Veta Pass AWOS 119.925 is located approximately 20 miles to the south. This pass can be used as an alternative to Le Veta Pass when winds are moderate. N37°43.97’-W105°27.26’.</description>
+		<Camera>
+			<longitude>-107.4829826086555</longitude>
+			<latitude>38.62698512143967</latitude>
+			<altitude>568793.3144257333</altitude>
+			<heading>8.744280243765854</heading>
+			<tilt>0.7306638764705052</tilt>
+			<roll>-74.00788843321693</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.4543305555556,37.73281958177699,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>North (VPNTH) 10,149&apos;</name>
+		<description>An alternative to Monarch Pass that is lower with better options for emergency landing sites. N38°13’-W106°34.54’</description>
+		<Camera>
+			<longitude>-107.4829826086555</longitude>
+			<latitude>38.62698512143967</latitude>
+			<altitude>568793.3144257333</altitude>
+			<heading>8.744280243765854</heading>
+			<tilt>0.7306638764705052</tilt>
+			<roll>-74.00788843321693</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.5756222222222,38.21671192812862,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Poncha (VPNCH) 9,015&apos;</name>
+		<description>Route: Salida to Alamosa. Road elevation 9,015’ MSL. The pass is visible to Salida weather observations. During moderate winds aloft turbulence can be expected. N38°25.33’-W106° 5.22’.</description>
+		<Camera>
+			<longitude>-107.4829826086555</longitude>
+			<latitude>38.62698512143967</latitude>
+			<altitude>568793.3144257333</altitude>
+			<heading>8.744280243765854</heading>
+			<tilt>0.7306638764705052</tilt>
+			<roll>-74.00788843321693</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.1000527777778,38.4672455086675,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Rabbit Ears (VPRBT) 9,426’</name>
+		<description>Route: Kremmling to Steamboat Springs. Road elevation 9,426’ MSL. This pass is visible from Steamboat Springs Airport. Use caution when trying to climb over the pass from Steamboat Springs Airport without first gaining sufficient altitude. Expect turbulence and up/down drafts during moderate winds aloft. N40°23.08’-W106°36.7’.</description>
+		<Camera>
+			<longitude>-106.2917499605536</longitude>
+			<latitude>39.52238707404872</latitude>
+			<altitude>74194.52493955154</altitude>
+			<heading>-3.775966369969033</heading>
+			<tilt>39.34273778049975</tilt>
+			<roll>-0.5912085276312554</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.6116027786684,40.38463055555555,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Rollins (VPROL) 11,671’</name>
+		<description>Route: Denver area to Granby/Kremmling (central mountains). Trail elevation 11,671’ MSL. This pass is not visible to any weather reporting stations. This is an open pass with several miles to cross. The trail that crosses is located on the north side of the pass. Expect strong down drafts with winds aloft over 30+kts. N39°56.05’-W105°40.97’.</description>
+		<Camera>
+			<longitude>-106.5588010412904</longitude>
+			<latitude>39.5883433073456</latitude>
+			<altitude>137607.6155618603</altitude>
+			<heading>-4.022571029578352</heading>
+			<tilt>35.63271808462328</tilt>
+			<roll>-0.7730358639335211</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.6828472222222,39.93417054666895,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Tennessee (VPTEM) 10,424</name>
+		<description>Route: Leadville to Vail/Eagle. Road elevation 10,424’ MSL. This pass is visible to Leadville weather observations. This pass is used for a north/ south route through the central mountains of Colorado. N39°19.28’-W106°18.67’</description>
+		<Camera>
+			<longitude>-107.4829826086555</longitude>
+			<latitude>38.62698512143967</latitude>
+			<altitude>568793.3144257333</altitude>
+			<heading>8.744280243765854</heading>
+			<tilt>0.7306638764705052</tilt>
+			<roll>-74.00788843321693</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.3114,39.36307676334264,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Trout Creek (VPTTC) 9,346&apos;</name>
+		<description>Route: South Park to Buena Vista. Road elevation 9,346’ MSL. This pass is visible to Buena Vista weather observations. This is one of the lowest routes into the central mountains. N38°54.6’-W105°58.5’.</description>
+		<Camera>
+			<longitude>-107.4829826086555</longitude>
+			<latitude>38.62698512143967</latitude>
+			<altitude>568793.3144257333</altitude>
+			<heading>8.744280243765854</heading>
+			<tilt>0.7306638764705052</tilt>
+			<roll>-74.00788843321693</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.9749444444444,38.90994964026582,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Wilkerson (VPILK) 9,507&apos;</name>
+		<description>Route: Colorado Springs/South Denver to South Park and central mountains. Road elevation 9,507’ MSL. This pass is part of the Mountain AWOS program. Wilkerson Pass AWOS 132.3 (4BM). Wilkerson pass is the main route into the central mountains from the east. N39°2.28’-W105°31.54’.</description>
+		<Camera>
+			<longitude>-107.4829826086555</longitude>
+			<latitude>38.62698512143967</latitude>
+			<altitude>568793.3144257333</altitude>
+			<heading>8.744280243765854</heading>
+			<tilt>0.7306638764705052</tilt>
+			<roll>-74.00788843321693</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.5256055555555,39.03795965318987,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Wolf Creek (VPWLF) 10,857&apos;</name>
+		<description>Route: Alamosa to Pagosa Springs/Durango. Road elevation 10,857’ MSL. This pass is part of the Mountain AWOS program. Wolf Creek Pass AWOS 121.125 (CPW). Wolf Creek Pass has a blind turn from north to south. N37°28.95’-W106°47.93’.</description>
+		<Camera>
+			<longitude>-107.4829826086555</longitude>
+			<latitude>38.62698512143967</latitude>
+			<altitude>568793.3144257333</altitude>
+			<heading>8.744280243765854</heading>
+			<tilt>0.7306638764705052</tilt>
+			<roll>-74.00788843321693</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.7987823441099,37.4824867909643,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Berthoud Pass </name>
+		<description>Route: Denver west to Granby/Kremmling (central 
+mountains). Road elevation 11,315’ MSL. This pass 
+is part of the Mountain AWOS program. This pass 
+follows I-70 to Highway 40 west from Denver. Expect 
+strong downdrafts and limited climb capability when 
+moderate to high winds aloft exist. East to west 
+flight path will be a blind right turn to cross the 
+pass. Mines Peak AWOS 134.325 (0CO) N39°47.9’
+W105°46.67’. </description>
+		<Camera>
+			<longitude>-106.2917499605536</longitude>
+			<latitude>39.52238707404872</latitude>
+			<altitude>74194.52493955012</altitude>
+			<heading>-3.775966369969037</heading>
+			<tilt>39.34273778049975</tilt>
+			<roll>-0.5912085276312661</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.7778333333333,39.79833333333333,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cameron Pass </name>
+		<description>
+Route: Fort Collins west to northern mountains 
+(Walden). Road elevation 10,276’ MSL. This pass 
+is not visible to any weather reporting stations. 
+N40°31.25’-W105°53.55’. </description>
+		<LookAt>
+			<longitude>-105.7775720942197</longitude>
+			<latitude>39.79777273020019</latitude>
+			<altitude>0</altitude>
+			<heading>-3.260982731483071</heading>
+			<tilt>60.00481590720221</tilt>
+			<range>619.3668312750381</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.7775722222222,40.52083333333334,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hayden Pass </name>
+		<description>Route: East-west pass across the northern Sangre 
+de Cristo Range (Denver to Alamosa). Trail elevation 
+10,709’ MSL. This pass is not visible to any weather 
+reporting stations. Watch for glider and hang-glider 
+activity on the west side of the pass. 
+N38°17.58’-W105°51.04’. </description>
+		<Camera>
+			<longitude>-105.9909351591512</longitude>
+			<latitude>38.22676431528201</latitude>
+			<altitude>158028.5452212572</altitude>
+			<heading>-6.348500491307319</heading>
+			<tilt>1.502167884891501</tilt>
+			<roll>-11.91319584598933</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.9961744796919,38.293,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Monarch Pass </name>
+		<description>Route: Salida to Gunnison. Road elevation 11,312’ 
+MSL. This pass is part of the Mountain AWOS 
+Program. Monarch Pass 124.175 (MYP). Caution: This 
+pass has had a historically high number of crashes. 
+Flight not recommended. Use Marshall Pass. 
+N38°29.8’, W106°19.54’. </description>
+		<Camera>
+			<longitude>-106.1010722843501</longitude>
+			<latitude>38.34827138312774</latitude>
+			<altitude>117469.6101228986</altitude>
+			<heading>-6.413228184098642</heading>
+			<tilt>1.502035416260637</tilt>
+			<roll>-11.92180101163038</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.3256666666667,38.49666666666667,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Loveland Pass </name>
+		<description>Route: Denver west to Silverthorne/Dillon (central 
+mountains). Road elevation 11,990’ MSL. This pass 
+is not visible to any weather reporting stations. 
+When flying from the east extreme caution should 
+be taken to not continue past HWY 6 when following 
+I-70 due to a box canyon above Eisenhower Tunnel 
+(I-70). Flight not recommended. Use Rollins Pass. 
+N39°39.82’-W105° 52.75’. </description>
+		<Camera>
+			<longitude>-105.9331576216068</longitude>
+			<latitude>39.44182663142526</latitude>
+			<altitude>85878.45591848023</altitude>
+			<heading>-6.302151154196984</heading>
+			<tilt>1.50203533802318</tilt>
+			<roll>-11.92203034184601</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.936025,39.66366666666666,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cottonwood Pass (Near Buena Vista, CO) </name>
+		<description>Route: Buena Vista to Taylor Park/Gunnison Area. 
+Trail elevation 12126’ MSL. This pass is part of 
+the Mountain AWOS program. Bald Mountain AWOS 
+132.05(7BM). This pass is a better alternative 
+than Monarch Pass in moderate winds aloft. 
+N38°49.67’-W106°24.55’. </description>
+		<Camera>
+			<longitude>-105.7000701969608</longitude>
+			<latitude>39.09279167663985</latitude>
+			<altitude>194630.0852244996</altitude>
+			<heading>4.50387524537632</heading>
+			<tilt>14.62846070653504</tilt>
+			<roll>-1.533663153340625</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-105.6537439745295,38.82783333333333,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cucharas Pass </name>
+		<description>Route: Southeastern plains (Trinidad) to San Luis 
+Valley and Alamosa. Road elevation 9,941’ MSL. This 
+pass is not visible to any weather reporting stations. 
+This pass is located west of the Spanish Peaks and 
+leads to La Veta Pass for crossing into the San Luis 
+Valley. N37°19.22’-W105°4.42’. </description>
+		<Camera>
+			<longitude>-108.1102126320285</longitude>
+			<latitude>37.73482537909192</latitude>
+			<altitude>1268310.934258182</altitude>
+			<heading>-5.197715962919889</heading>
+			<tilt>1.884455338343061</tilt>
+			<roll>-9.538118948443575</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.1533549074788,37.32033333333333,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cumbres</name>
+		<description>Route: Alamosa to Durango. Road and track 
+elevations - Cumbres 10,022’ MSL, La Manga 
+10,230’ MSL.  These passes are located on the 
+Colorado/New Mexico state line and are visible 
+from weather reporting station at Alamosa. 
+Cumbres: N37°1.24’-W106°27’, La Manga: 
+N37°4.65’-W106°23.17’. </description>
+		<Camera>
+			<longitude>-108.1102116131116</longitude>
+			<latitude>37.73482768150591</latitude>
+			<altitude>1268310.942077709</altitude>
+			<heading>-5.19768460912235</heading>
+			<tilt>1.884457558288787</tilt>
+			<roll>-9.538088201602495</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.1533554132928,37.02066666666666,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>La Manga Pass </name>
+		<description>Route: Alamosa to Durango. Road and track 
+elevations - Cumbres 10,022’ MSL, La Manga 
+10,230’ MSL.  These passes are located on the 
+Colorado/New Mexico state line and are visible 
+from weather reporting station at Alamosa. 
+Cumbres: N37°1.24’-W106°27’, La Manga: 
+N37°4.65’-W106°23.17’. </description>
+		<Camera>
+			<longitude>-108.1102116131116</longitude>
+			<latitude>37.73482768150591</latitude>
+			<altitude>1268310.942077709</altitude>
+			<heading>-5.19768460912235</heading>
+			<tilt>1.884457558288787</tilt>
+			<roll>-9.538088201602495</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.1533554132928,37.0775,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Fremont Pass</name>
+		<description>Route: Silverthorne/Dillon to Leadville. Road 
+elevation 11,320’ MSL. This pass is part of the 
+Mountain AWOS program. Copper Mountain AWOS 
+118.075 (CCU). This pass is in an open valley 
+identified by the large Climax Molybdenum Mine 
+N39°21.98’-W106°11.2’. </description>
+		<Camera>
+			<longitude>-108.1122054365642</longitude>
+			<latitude>37.91434623962939</latitude>
+			<altitude>86215.33510085334</altitude>
+			<heading>37.11205669615665</heading>
+			<tilt>0.9899279252794884</tilt>
+			<roll>-45.17478210748337</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.1020075468721,39.36633333333333,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Independence Pass </name>
+		<description>Route: Leadville to Aspen. Road elevation 12,094’ 
+MSL. This pass is not visible to any weather 
+reporting stations. This pass is narrow with blind 
+turns. Flight not recommended. Use Hagerman Pass. 
+N39°6.53’-W106°33.83’. </description>
+		<Camera>
+			<longitude>-108.3416549260796</longitude>
+			<latitude>38.77616912636154</latitude>
+			<altitude>433886.6252800357</altitude>
+			<heading>30.52239633682271</heading>
+			<tilt>0.8956056945591732</tilt>
+			<roll>-51.63312770429967</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.3019435465948,39.10883333333334,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Milner Pass</name>
+		<description>Route: North Denver via Estes Park to Granby. Road 
+elevation 10,758’ MSL. This pass crosses Rocky 
+Mountain National Park. Moderate winds aloft will 
+produce turbulence on the east side of the pass. 
+N40°25.20’-W105°43.72’. </description>
+		<Camera>
+			<longitude>-108.3416549260796</longitude>
+			<latitude>38.77616912636154</latitude>
+			<altitude>433886.6252800357</altitude>
+			<heading>30.52239633682271</heading>
+			<tilt>0.8956056945591732</tilt>
+			<roll>-51.63312770429967</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.3019435465948,40.42,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Mosquito Pass</name>
+		<description>Route: Fairplay to Leadville. Trail elevation 13,186’ 
+MSL. This pass is not visible to weather reporting 
+stations. High winds aloft will produce turbulence 
+and strong downdrafts. N39°16.88’-W106°11.17’. </description>
+		<Camera>
+			<longitude>-108.3416549260796</longitude>
+			<latitude>38.77616912636154</latitude>
+			<altitude>433886.6252800357</altitude>
+			<heading>30.52239633682271</heading>
+			<tilt>0.8956056945591732</tilt>
+			<roll>-51.63312770429967</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.3019435465948,39.28133333333334,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Red Mountain Pass </name>
+		<description>Route: Montrose to Durango. Road elevation 11,120’ 
+MSL. This pass is not visible from any weather 
+reporting stations. Use extreme caution when 
+crossing this pass due to long periods of rugged 
+terrain. During light to moderate winds aloft 
+turbulence and up/down drafts can be expected. 
+N37°53.93’-W107°42.72’. </description>
+		<Camera>
+			<longitude>-108.3665371104673</longitude>
+			<latitude>39.06903148840421</latitude>
+			<altitude>68269.59732639517</altitude>
+			<heading>30.50774891462956</heading>
+			<tilt>0.8956078508033049</tilt>
+			<roll>-51.63988569140901</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-108.3602656314426,37.89883333333334,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Vail Pass </name>
+		<description>Route: Silverthorne/Dillon to Vail/Eagle. Road 
+elevation 10,606’ MSL. This pass is part of the 
+Mountain AWOS program. Copper Mountain AWOS 
+118.075 (CCU). This pass follows Interstate 70. 
+N39°31.83’-W106°13.03’. </description>
+		<Camera>
+			<longitude>-106.5588010412904</longitude>
+			<latitude>39.5883433073456</latitude>
+			<altitude>137607.6155618603</altitude>
+			<heading>-4.022571029578391</heading>
+			<tilt>35.63271808462329</tilt>
+			<roll>-0.7730358639335524</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.6411222217671,39.5305,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Weston Pass</name>
+		<description>Route: Fairplay to Leadville. Road elevation 11,960’ 
+MSL. This pass is visible to Leadville weather 
+observations. During moderate winds aloft expect 
+turbulence and up/down drafts. This pass has blind 
+turns at both ends. N39°7.88’-W106°10.93’. </description>
+		<Camera>
+			<longitude>-106.5588010412904</longitude>
+			<latitude>39.5883433073456</latitude>
+			<altitude>137607.6155618603</altitude>
+			<heading>-4.022571029578391</heading>
+			<tilt>35.63271808462329</tilt>
+			<roll>-0.7730358639335524</roll>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</Camera>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-106.6411222217671,39.13133333333333,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
