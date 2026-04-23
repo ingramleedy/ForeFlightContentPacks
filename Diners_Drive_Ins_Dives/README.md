@@ -2,21 +2,63 @@
 
 **Download:** [Diners_Drive_Ins_Dives_Pack.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diners_Drive_Ins_Dives/Diners_Drive_Ins_Dives_Pack.zip?raw=true)
 
-A ForeFlight content pack containing every restaurant featured on Guy Fieri's **Diners, Drive-Ins and Dives** (Food Network), scraped from the show's A–Z listing and geocoded for use as a toggleable map layer in ForeFlight. Tap any pin to see the restaurant name, full address, phone number, and Food Network blurb.
+A ForeFlight content pack containing every restaurant featured on Guy Fieri's **Diners, Drive-Ins and Dives** (Food Network), as a single toggleable map layer with rich-HTML tap popups. Each pin shows the restaurant name, the dishes Guy actually featured on the show, the full Food Network blurb, every DDD episode it appeared on, and clickable phone / website / Apple-Maps address.
 
-**Current version:** `2026.04.23`
-**Restaurants:** 939 (all US locations from the [Food Network DDD A–Z listing](https://www.foodnetwork.com/restaurants/shows/diners-drive-ins-and-dives/a-z))
-**Pack size:** ~90 KB zipped
+**Current version:** `2026.04.23` (abbreviation `DDD.V1`)
+**Restaurants:** 1,149 (US locations from the [Food Network DDD A–Z listing](https://www.foodnetwork.com/restaurants/shows/diners-drive-ins-and-dives/a-z), filtered to those with usable coordinates)
+**Pack size:** ~380 KB zipped
 
 ## Content Overview
 
-The pack ships a single KML layer: **Diners, Drive-Ins and Dives** — 939 red pins, one per restaurant, with a rich-description popup on tap.
+The pack ships a single KML layer in `pack/layers/` — `Diners_Drive_Ins_Dives.kml` — with all per-restaurant detail embedded directly in each placemark's tap popup as inline HTML. No separate waypoint database, no PDFs. (See [../PACK_FORMAT.md](../PACK_FORMAT.md) §2.1 — layer placemarks in ForeFlight cannot attach PDFs; that's a `navdata/`-only feature. Keeping everything in the layer KML means one clean toggle and rich popup content with no extra entries cluttering the layer selector.)
 
-This is the $100-hamburger destination list for pilots who plan their cross-countries around food. It pairs naturally with [Airport_Restaurants](../Airport_Restaurants/) — the Airport Restaurants pack covers restaurants *on or near airports*, while DDD covers restaurants *anywhere in the US that Guy Fieri visited*, which are often well outside walking distance of a runway.
+This is the $100-hamburger destination list for pilots who plan their cross-countries around food. It pairs naturally with [Airport_Restaurants](../Airport_Restaurants/) (dining *at* airports), [Michelin_Restaurants](../Michelin_Restaurants/) (the upscale end), and DDD (Guy Fieri's roadside spots, anywhere Guy visited — usually well outside walking distance of a runway).
+
+### What you get when you tap a pin
+
+Each placemark's popup renders as a formatted HTML card containing:
+
+- Restaurant name (large) with a "DINERS, DRIVE-INS AND DIVES" brand header
+- City / state and Food Network user rating (where present, e.g. ★ 4.6 from 9 reviews)
+- **Tappable phone** (opens the dialer)
+- **Tappable website** (opens the restaurant's own site in Safari)
+- **Tappable address** (opens Apple Maps pinned to the restaurant)
+- **Special Dishes** — the specific items Guy featured on the show
+- **About** — Food Network's blurb (Guy's visit, atmosphere, signature stuff)
+- **Featured On** — every DDD episode this restaurant appeared on
+- Clickable "View on Food Network →" link back to the listing
+
+Sizing is tuned for ForeFlight's Description renderer on iPad — the renderer scales inline CSS px ~2.5–3× smaller than a browser, so device-tested baselines from [../PACK_FORMAT.md](../PACK_FORMAT.md) §6 are used: body 30px, restaurant name 52px, section labels 26px, footer 22px.
 
 ### Source
 
-Restaurants are scraped from the [Food Network's DDD A–Z listing](https://www.foodnetwork.com/restaurants/shows/diners-drive-ins-and-dives/a-z) with a Python pipeline, then geocoded via Nominatim (OpenStreetMap). The upstream scraping tool lives in a separate repo: [ForeFlightDinersDriveInsDives](https://github.com/ingramleedy/ForeFlightDinersDriveInsDives) — it also produces a human-readable Markdown table and an intermediate `restaurants.json` cache for quick re-exports.
+Restaurants are scraped from the [Food Network's DDD A–Z listing](https://www.foodnetwork.com/restaurants/shows/diners-drive-ins-and-dives/a-z) (86 paginated pages → ~1,225 detail URLs). For each restaurant we pull the embedded `<script type="application/ld+json">` schema.org `Restaurant` record (name, description, address, phone, geo, restaurant's own website, image, aggregate rating) plus HTML enrichment for fields not in JSON-LD: the "Special Dishes:" paragraph and the linked DDD episode titles.
+
+About 27% of Food Network's listings don't include `geo.latitude` in their JSON-LD; those records are backfilled with a Nominatim (OpenStreetMap) lookup keyed off the structured address. About 75 restaurants ultimately can't be plotted (Nominatim doesn't find them) and are dropped from the pack — that's why the published count (1,149) is below the harvested count (1,224).
+
+## Build pipeline
+
+```
+scripts/
+├── scrape_ddd.py          Playwright → data/ddd_raw.json
+│                          (JSON-LD + special dishes + episodes per restaurant)
+├── geocode_missing.py     Nominatim backfill for records without geo.latitude
+├── build_layer_kml.py     JSON → pack/layers/Diners_Drive_Ins_Dives.kml
+├── validate_pack.py       pre-zip gate (non-ASCII, color, tessellate, etc.)
+└── package.py             manifest bump + validate + zip
+```
+
+To rebuild against the current Food Network database:
+
+```bash
+pip install playwright
+playwright install chromium
+cd Diners_Drive_Ins_Dives
+python scripts/scrape_ddd.py            # ~20 min, ~1,225 detail pages
+python scripts/geocode_missing.py       # ~6 min, fills geo for ~330 records via Nominatim
+python scripts/build_layer_kml.py
+python scripts/package.py               # writes Diners_Drive_Ins_Dives_Pack.zip
+```
 
 ## Importing the Content Pack into ForeFlight
 

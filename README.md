@@ -12,9 +12,10 @@ The **Version** column is the pack's current published version (year.month.day).
 | [Colorado_Mountain_Passes](Colorado_Mountain_Passes/) | 36 Colorado mountain passes as waypoints + custom layer for safer Rocky Mountain crossings. | `2025.12.11` | ~109 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Colorado_Mountain_Passes/Colorado_Mountain_Passes_Pack.zip?raw=true) |
 | [Cross_Border_Flying](Cross_Border_Flying/) | US Customs southern-border POEs and Bahamas airports with procedures for US↔Canada/Mexico/Bahamas flights. | `2023.11.10` | ~11 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Cross_Border_Flying/Cross_Border_Flying_Pack.zip?raw=true) |
 | [Diamond_Service_Centers](Diamond_Service_Centers/) | Diamond Aircraft authorized service, sales, and training centers worldwide (~192 locations). | `2025.12.12` | ~25 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diamond_Service_Centers/Diamond_Service_Centers_Pack.zip?raw=true) |
-| [Diners_Drive_Ins_Dives](Diners_Drive_Ins_Dives/) | 939 restaurants featured on Guy Fieri's *Diners, Drive-Ins and Dives* (Food Network) as tappable pins with name, address, phone, and blurb. | `2026.04.23` | ~90 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diners_Drive_Ins_Dives/Diners_Drive_Ins_Dives_Pack.zip?raw=true) |
+| [Diners_Drive_Ins_Dives](Diners_Drive_Ins_Dives/) | 1,149 restaurants featured on Guy Fieri's *Diners, Drive-Ins and Dives* (Food Network) as a single toggleable map layer. Tap any pin for special dishes Guy ate, full Food Network blurb, episodes featured on, and clickable phone / website / Apple-Maps address. | `2026.04.23` | ~380 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diners_Drive_Ins_Dives/Diners_Drive_Ins_Dives_Pack.zip?raw=true) |
 | [FAA_Facilities](FAA_Facilities/) | ARTCC sectors and TRACON boundaries as a map layer for airspace situational awareness. | `2025.12.29` | ~101 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/FAA_Facilities/FAA_Facilities_Pack.zip?raw=true) |
 | [Indian_Reservations](Indian_Reservations/) | 312 US Indian reservations as tappable zones + points, with overflight-considerations + special-airspace PDFs. | `2026.04.20` | ~315 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Indian_Reservations/Indian_Reservations_Pack.zip?raw=true) |
+| [Michelin_Restaurants](Michelin_Restaurants/) | 272 MICHELIN-starred US restaurants as three toggleable map layers (one per star tier). Tap any pin for the full inspector review + clickable phone / website / Apple-Maps address. | `2026.04.23` | ~130 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Michelin_Restaurants/Michelin_Restaurants_Pack.zip?raw=true) |
 | [New_York_Scenic](New_York_Scenic/) | Hudson River / East River SFRA reporting points + Statue of Liberty orbit waypoints. | `2025.12.12` | ~1.9 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/New_York_Scenic/New_York_Scenic_Pack.zip?raw=true) |
 | [Timezones](Timezones/) | World time zone boundaries with UTC offsets as a toggleable KML layer. | `2025.12` | ~242 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Timezones/Timezones_Pack.zip?raw=true) |
 
@@ -102,6 +103,8 @@ Each pack is a self-contained subfolder. The target layout for new packs (Indian
 Older migrated packs don't all conform yet — see [Indian_Reservations/](Indian_Reservations/) for the reference. Bringing the rest onto this layout is a tracked follow-up.
 
 ## Contributing a new pack
+
+Start with [PACK_FORMAT.md](PACK_FORMAT.md) — it covers the behavioral differences between `layers/` and `navdata/`, the rich-waypoint PDF mechanics, the KML subset ForeFlight actually renders, and the common mistakes. Short version:
 
 1. Create a new subfolder at the repo root.
 2. Mirror the layout above: `scripts/`, `content/`, `data/`, `pack/layers/`, `pack/navdata/`.

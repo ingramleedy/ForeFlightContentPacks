@@ -3,6 +3,8 @@
 */data/*.shp
 */data/*.zip
 */data/*.csv
+*/data/*.json
+*/data/*.pdf
 */data/enrichment.json
 */data/_*.json
 
@@ -26,6 +28,10 @@ Thumbs.db
 
 # Local Claude Code settings
 .claude/
+
+# Playwright MCP auto-generated traces / console logs / snapshots
+.playwright-mcp/
+*/data/playwright-traces/
 
 # Preserve pack/data directories but not their contents (so the layout is discoverable)
 !*/data/.gitkeep
