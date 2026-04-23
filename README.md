@@ -10,18 +10,11 @@ A collection of ForeFlight content packs for general aviation pilots. Every pack
 | [Colorado_Mountain_Passes](Colorado_Mountain_Passes/) | 36 Colorado mountain passes as waypoints + custom layer for safer Rocky Mountain crossings. | ~109 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Colorado_Mountain_Passes/Colorado_Mountain_Passes_Pack.zip?raw=true) |
 | [Cross_Border_Flying](Cross_Border_Flying/) | US Customs southern-border POEs and Bahamas airports with procedures for US↔Canada/Mexico/Bahamas flights. | ~11 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Cross_Border_Flying/Cross_Border_Flying_Pack.zip?raw=true) |
 | [Diamond_Service_Centers](Diamond_Service_Centers/) | Diamond Aircraft authorized service, sales, and training centers worldwide (~192 locations). | ~25 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diamond_Service_Centers/Diamond_Service_Centers_Pack.zip?raw=true) |
+| [Diners_Drive_Ins_Dives](Diners_Drive_Ins_Dives/) | 939 restaurants featured on Guy Fieri's *Diners, Drive-Ins and Dives* (Food Network) as tappable pins with name, address, phone, and blurb. | ~90 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diners_Drive_Ins_Dives/Diners_Drive_Ins_Dives_Pack.zip?raw=true) |
 | [FAA_Facilities](FAA_Facilities/) | ARTCC sectors and TRACON boundaries as a map layer for airspace situational awareness. | ~101 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/FAA_Facilities/FAA_Facilities_Pack.zip?raw=true) |
 | [Indian_Reservations](Indian_Reservations/) | 312 US Indian reservations as tappable zones + points, with overflight-considerations + special-airspace PDFs. | ~315 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Indian_Reservations/Indian_Reservations_Pack.zip?raw=true) |
 | [New_York_Scenic](New_York_Scenic/) | Hudson River / East River SFRA reporting points + Statue of Liberty orbit waypoints. | ~1.9 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/New_York_Scenic/New_York_Scenic_Pack.zip?raw=true) |
 | [Timezones](Timezones/) | World time zone boundaries with UTC offsets as a toggleable KML layer. | ~242 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Timezones/Timezones_Pack.zip?raw=true) |
-
-## Other first-party pilot content (separate repo)
-
-Not a content pack (imported via ForeFlight's **Map Elements → Custom Map Overlays**, not **More → Content Packs**), but ships alongside this collection on the [listing site](https://ingramleedy.github.io/foreflight-content-packs/):
-
-| Project | Description | Size | Download |
-|---|---|---|---|
-| [Diners, Drive-Ins and Dives](https://github.com/ingramleedy/ForeFlightDinersDriveInsDives) | 1,000+ *DDD* restaurants scraped from the Food Network A–Z listing and geocoded into a ForeFlight KML overlay — tap a pin for name, address, phone, and description. | ~366 KB | [.kml](https://github.com/ingramleedy/ForeFlightDinersDriveInsDives/blob/main/output/DDD_Restaurants.kml?raw=true) |
 
 ## Related projects
 
