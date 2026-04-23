@@ -4,17 +4,19 @@ A collection of ForeFlight content packs for general aviation pilots. Every pack
 
 ## Packs in this repo
 
-| Pack | Description | Size | Download |
-|---|---|---|---|
-| [Airport_Restaurants](Airport_Restaurants/) | Pilot-friendly dining at or near airports; includes per-state / per-province subsets in [`contentpacks/`](Airport_Restaurants/contentpacks/). | ~15 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Airport_Restaurants/Airport_Restaurants_Pack.zip?raw=true) |
-| [Colorado_Mountain_Passes](Colorado_Mountain_Passes/) | 36 Colorado mountain passes as waypoints + custom layer for safer Rocky Mountain crossings. | ~109 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Colorado_Mountain_Passes/Colorado_Mountain_Passes_Pack.zip?raw=true) |
-| [Cross_Border_Flying](Cross_Border_Flying/) | US Customs southern-border POEs and Bahamas airports with procedures for US↔Canada/Mexico/Bahamas flights. | ~11 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Cross_Border_Flying/Cross_Border_Flying_Pack.zip?raw=true) |
-| [Diamond_Service_Centers](Diamond_Service_Centers/) | Diamond Aircraft authorized service, sales, and training centers worldwide (~192 locations). | ~25 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diamond_Service_Centers/Diamond_Service_Centers_Pack.zip?raw=true) |
-| [Diners_Drive_Ins_Dives](Diners_Drive_Ins_Dives/) | 939 restaurants featured on Guy Fieri's *Diners, Drive-Ins and Dives* (Food Network) as tappable pins with name, address, phone, and blurb. | ~90 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diners_Drive_Ins_Dives/Diners_Drive_Ins_Dives_Pack.zip?raw=true) |
-| [FAA_Facilities](FAA_Facilities/) | ARTCC sectors and TRACON boundaries as a map layer for airspace situational awareness. | ~101 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/FAA_Facilities/FAA_Facilities_Pack.zip?raw=true) |
-| [Indian_Reservations](Indian_Reservations/) | 312 US Indian reservations as tappable zones + points, with overflight-considerations + special-airspace PDFs. | ~315 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Indian_Reservations/Indian_Reservations_Pack.zip?raw=true) |
-| [New_York_Scenic](New_York_Scenic/) | Hudson River / East River SFRA reporting points + Statue of Liberty orbit waypoints. | ~1.9 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/New_York_Scenic/New_York_Scenic_Pack.zip?raw=true) |
-| [Timezones](Timezones/) | World time zone boundaries with UTC offsets as a toggleable KML layer. | ~242 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Timezones/Timezones_Pack.zip?raw=true) |
+The **Version** column is the pack's current published version (year.month.day). To check whether the copy installed on your iPad is current, open ForeFlight → **More → Content Packs** and compare the version shown there against the version below — if this page shows a newer number, tap the Download link, re-import into ForeFlight, and the older version will be replaced.
+
+| Pack | Description | Version | Size | Download |
+|---|---|---|---|---|
+| [Airport_Restaurants](Airport_Restaurants/) | Pilot-friendly dining at or near airports; includes per-state / per-province subsets in [`contentpacks/`](Airport_Restaurants/contentpacks/). | `2023.10.21` | ~15 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Airport_Restaurants/Airport_Restaurants_Pack.zip?raw=true) |
+| [Colorado_Mountain_Passes](Colorado_Mountain_Passes/) | 36 Colorado mountain passes as waypoints + custom layer for safer Rocky Mountain crossings. | `2025.12.11` | ~109 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Colorado_Mountain_Passes/Colorado_Mountain_Passes_Pack.zip?raw=true) |
+| [Cross_Border_Flying](Cross_Border_Flying/) | US Customs southern-border POEs and Bahamas airports with procedures for US↔Canada/Mexico/Bahamas flights. | `2023.11.10` | ~11 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Cross_Border_Flying/Cross_Border_Flying_Pack.zip?raw=true) |
+| [Diamond_Service_Centers](Diamond_Service_Centers/) | Diamond Aircraft authorized service, sales, and training centers worldwide (~192 locations). | `2025.12.12` | ~25 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diamond_Service_Centers/Diamond_Service_Centers_Pack.zip?raw=true) |
+| [Diners_Drive_Ins_Dives](Diners_Drive_Ins_Dives/) | 939 restaurants featured on Guy Fieri's *Diners, Drive-Ins and Dives* (Food Network) as tappable pins with name, address, phone, and blurb. | `2026.04.23` | ~90 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Diners_Drive_Ins_Dives/Diners_Drive_Ins_Dives_Pack.zip?raw=true) |
+| [FAA_Facilities](FAA_Facilities/) | ARTCC sectors and TRACON boundaries as a map layer for airspace situational awareness. | `2025.12.29` | ~101 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/FAA_Facilities/FAA_Facilities_Pack.zip?raw=true) |
+| [Indian_Reservations](Indian_Reservations/) | 312 US Indian reservations as tappable zones + points, with overflight-considerations + special-airspace PDFs. | `2026.04.20` | ~315 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Indian_Reservations/Indian_Reservations_Pack.zip?raw=true) |
+| [New_York_Scenic](New_York_Scenic/) | Hudson River / East River SFRA reporting points + Statue of Liberty orbit waypoints. | `2025.12.12` | ~1.9 MB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/New_York_Scenic/New_York_Scenic_Pack.zip?raw=true) |
+| [Timezones](Timezones/) | World time zone boundaries with UTC offsets as a toggleable KML layer. | `2025.12` | ~242 KB | [.zip](https://github.com/ingramleedy/ForeFlightContentPacks/blob/main/Timezones/Timezones_Pack.zip?raw=true) |
 
 ## Related projects
 
