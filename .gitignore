@@ -35,3 +35,6 @@ Thumbs.db
 
 # Preserve pack/data directories but not their contents (so the layout is discoverable)
 !*/data/.gitkeep
+
+# Hand-encoded source data files (not generated — must be committed)
+!AIN_FBO_Survey/data/fbos_raw.json
